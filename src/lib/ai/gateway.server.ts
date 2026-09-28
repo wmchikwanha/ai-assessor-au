@@ -375,7 +375,7 @@ export type GatewayTask = "generate_variants" | "context_pass" | "score_alignmen
 
 export async function runTask(
   task: GatewayTask,
-  payload: { assessmentId: string; stance?: Stance; regenerate?: boolean },
+  payload: { assessmentId: string; stance?: Stance | undefined; regenerate?: boolean | undefined },
   db: DB,
   userEmail: string,
 ) {

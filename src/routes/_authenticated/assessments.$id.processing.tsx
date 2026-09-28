@@ -49,7 +49,7 @@ function Processing() {
     setError(null);
     for (let i = from; i < PASSES.length; i++) {
       try {
-        await run({ data: { task: PASSES[i].task, payload: { assessmentId: id } } });
+        await run({ data: { task: PASSES[i]!.task, payload: { assessmentId: id } } });
         setDone(i + 1);
       } catch (e) {
         setError((e as Error).message);

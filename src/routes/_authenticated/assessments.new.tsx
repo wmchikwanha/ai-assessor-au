@@ -70,7 +70,7 @@ function Capture() {
   }
 
   async function save() {
-    if (!f.text.trim() || !f.unit_code.trim()) return toast.error("Unit code and assessment text are required.");
+    if (!f.text.trim() || !f.unit_code.trim()) { toast.error("Unit code and assessment text are required."); return; }
     setBusy(true);
     const { text, ...meta } = f;
     const { data, error } = await supabase
@@ -79,7 +79,7 @@ function Capture() {
       .select("id")
       .single();
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     navigate({ to: "/assessments/$id/anonymise", params: { id: data.id } });
   }
 

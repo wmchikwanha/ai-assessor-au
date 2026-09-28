@@ -42,7 +42,7 @@ function Section({ n, title, children }: { n: number; title: string; children: R
   );
 }
 
-export function VariantCard({ v, score, swaps }: { v: Variant; score?: VariantScore; swaps: Swap[] }) {
+export function VariantCard({ v, score, swaps }: { v: Variant; score?: VariantScore | undefined; swaps: Swap[] }) {
   const meta = STANCES.find((s) => s.key === v.stance)!;
   const t = tone[v.stance];
   const totalMarks = v.rubric.reduce((a, r) => a + (Number(r.marks) || 0), 0);

@@ -21,7 +21,7 @@ export const aiGateway = createServerFn({ method: "POST" })
     try {
       const email = (context.claims as { email?: string })?.email ?? context.userId;
       const result = await runTask(data.task, data.payload, context.supabase, email);
-      return JSON.parse(JSON.stringify(result)) as Record<string, unknown>;
+      return JSON.parse(JSON.stringify(result)) as { ok?: boolean };
     } catch (e) {
       if (e instanceof GatewayError) {
         setResponseStatus(e.status);

@@ -43,7 +43,7 @@ export function isValidTFN(d: string): boolean {
   const w8 = [10, 7, 8, 4, 6, 3, 5, 1];
   const w = d.length === 9 ? w9 : d.length === 8 ? w8 : null;
   if (!w) return false;
-  const sum = [...d].reduce((a, c, i) => a + Number(c) * w[i], 0);
+  const sum = [...d].reduce((a, c, i) => a + Number(c) * (w[i] ?? 0), 0);
   return sum % 11 === 0;
 }
 
@@ -51,15 +51,15 @@ export function isValidABN(d: string): boolean {
   if (d.length !== 11) return false;
   const w = [10, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
   const n = [...d].map(Number);
-  n[0] -= 1;
-  return n.reduce((a, v, i) => a + v * w[i], 0) % 89 === 0;
+  n[0] = (n[0] ?? 0) - 1;
+  return n.reduce((a, v, i) => a + v * (w[i] ?? 0), 0) % 89 === 0;
 }
 
 export function isValidMedicare(d: string): boolean {
   if (d.length !== 10 && d.length !== 11) return false;
   if (!/^[2-6]/.test(d)) return false;
   const w = [1, 3, 7, 9, 1, 3, 7, 9];
-  const sum = w.reduce((a, wi, i) => a + Number(d[i]) * wi, 0);
+  const sum = w.reduce((a, wi, i) => a + Number(d[i] ?? 0) * wi, 0);
   return sum % 10 === Number(d[8]);
 }
 
@@ -99,7 +99,7 @@ export function scanText(text: string): PrivacyFlag[] {
   for (const rule of RULES) {
     rule.re.lastIndex = 0;
     for (const m of text.matchAll(rule.re)) {
-      const t = m[0];
+      const t = m[0] ?? "";
       if (rule.validate && !rule.validate(t)) continue;
       const start = m.index ?? 0;
       const end = start + t.length;

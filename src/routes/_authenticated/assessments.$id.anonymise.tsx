@@ -52,7 +52,7 @@ function PrivacyGate() {
   const canContinue = clean && decl.every(Boolean);
 
   async function proceed() {
-    if (!canContinue || text === null) return;
+    if (!canContinue || text === null) return undefined;
     setBusy(true);
     const { error } = await supabase
       .from("assessments")
@@ -63,7 +63,7 @@ function PrivacyGate() {
       })
       .eq("id", id);
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     await qc.invalidateQueries({ queryKey: ["assessment", id] });
     navigate({ to: "/assessments/$id/processing", params: { id } });
   }
@@ -103,7 +103,7 @@ function PrivacyGate() {
                 <div className="mt-3 flex gap-2">
                   <Button size="sm" onClick={() => { setText((t) => removeFlag(t!, f)); setRemoved((n) => n + 1); }}>Remove</Button>
                   {f.category === "name" ? (
-                    <Button size="sm" variant="outline" onClick={() => { setKept((k) => [...k, f.text]); setDecl((d) => [d[0], false, d[2]]); }}>
+                    <Button size="sm" variant="outline" onClick={() => { setKept((k) => [...k, f.text]); setDecl((d) => [!!d[0], false, !!d[2]]); }}>
                       Keep (staff name, with declaration)
                     </Button>
                   ) : (
@@ -118,7 +118,7 @@ function PrivacyGate() {
             <p className="text-sm font-semibold">Declarations</p>
             {DECLARATIONS.map((d, i) => (
               <label key={d} className="flex items-start gap-3 text-sm">
-                <Checkbox checked={decl[i]} onCheckedChange={(v) => setDecl((p) => p.map((x, j) => (j === i ? !!v : x)))} className="mt-0.5" />
+                <Checkbox checked={!!decl[i]} onCheckedChange={(v) => setDecl((p) => p.map((x, j) => (j === i ? !!v : x)))} className="mt-0.5" />
                 <span>{d}</span>
               </label>
             ))}
