@@ -112,7 +112,7 @@ export function scanText(text: string): PrivacyFlag[] {
 }
 
 export function redactionToken(c: FlagCategory) {
-  return `[REDACTED ${CATEGORY_LABEL[c].split(" (")[0].toUpperCase()}]`;
+      if (found.some((f) => start < f.end && end > f.start)) continue;
 }
 
 export function removeFlag(text: string, flag: PrivacyFlag): string {

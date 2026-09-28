@@ -211,7 +211,7 @@ async function contextPass(db: DB, row: Row) {
         const o = s.original.trim().toLowerCase();
         const r = s.replacement.trim().toLowerCase();
         if (!o || !r || o === r) return false; // identity / cosmetic
-        return r.includes("to be confirmed") || allowed.some((a) => a.includes(r) || r.includes(a.split(" (")[0]));
+        return r.includes("to be confirmed") || allowed.some((a) => a.includes(r) || r.includes(a.split(" (")[0] ?? a));
       });
       genuine.forEach((s) => allSwaps.push({ ...s, stance: v.stance }));
       return { ...v, student_brief: out.student_brief, context_anchors: out.context_anchors };
