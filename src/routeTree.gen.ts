@@ -16,6 +16,7 @@ import { Route as AuthenticatedDashboardRouteImport } from './routes/_authentica
 import { Route as AuthenticatedAssessmentsNewRouteImport } from './routes/_authenticated/assessments.new'
 import { Route as AuthenticatedAssessmentsIdAnonymiseRouteImport } from './routes/_authenticated/assessments.$id.anonymise'
 import { Route as AuthenticatedAssessmentsIdProcessingRouteImport } from './routes/_authenticated/assessments.$id.processing'
+import { Route as AuthenticatedAssessmentsIdResultsRouteImport } from './routes/_authenticated/assessments.$id.results'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -54,6 +55,12 @@ const AuthenticatedAssessmentsIdProcessingRoute =
     path: '/assessments/$id/processing',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedAssessmentsIdResultsRoute =
+  AuthenticatedAssessmentsIdResultsRouteImport.update({
+    id: '/assessments/$id/results',
+    path: '/assessments/$id/results',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/assessments/new': typeof AuthenticatedAssessmentsNewRoute
   '/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
   '/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
+  '/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +78,7 @@ export interface FileRoutesByTo {
   '/assessments/new': typeof AuthenticatedAssessmentsNewRoute
   '/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
   '/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
+  '/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +89,7 @@ export interface FileRoutesById {
   '/_authenticated/assessments/new': typeof AuthenticatedAssessmentsNewRoute
   '/_authenticated/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
   '/_authenticated/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
+  '/_authenticated/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,6 +100,7 @@ export interface FileRouteTypes {
     | '/assessments/new'
     | '/assessments/$id/anonymise'
     | '/assessments/$id/processing'
+    | '/assessments/$id/results'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -98,6 +109,7 @@ export interface FileRouteTypes {
     | '/assessments/new'
     | '/assessments/$id/anonymise'
     | '/assessments/$id/processing'
+    | '/assessments/$id/results'
   id:
     | '__root__'
     | '/'
@@ -107,6 +119,7 @@ export interface FileRouteTypes {
     | '/_authenticated/assessments/new'
     | '/_authenticated/assessments/$id/anonymise'
     | '/_authenticated/assessments/$id/processing'
+    | '/_authenticated/assessments/$id/results'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -166,6 +179,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAssessmentsIdProcessingRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/assessments/$id/results': {
+      id: '/_authenticated/assessments/$id/results'
+      path: '/assessments/$id/results'
+      fullPath: '/assessments/$id/results'
+      preLoaderRoute: typeof AuthenticatedAssessmentsIdResultsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
@@ -174,6 +194,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedAssessmentsNewRoute: typeof AuthenticatedAssessmentsNewRoute
   AuthenticatedAssessmentsIdAnonymiseRoute: typeof AuthenticatedAssessmentsIdAnonymiseRoute
   AuthenticatedAssessmentsIdProcessingRoute: typeof AuthenticatedAssessmentsIdProcessingRoute
+  AuthenticatedAssessmentsIdResultsRoute: typeof AuthenticatedAssessmentsIdResultsRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -183,6 +204,8 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
     AuthenticatedAssessmentsIdAnonymiseRoute,
   AuthenticatedAssessmentsIdProcessingRoute:
     AuthenticatedAssessmentsIdProcessingRoute,
+  AuthenticatedAssessmentsIdResultsRoute:
+    AuthenticatedAssessmentsIdResultsRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
