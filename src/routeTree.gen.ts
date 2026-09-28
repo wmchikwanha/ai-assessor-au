@@ -15,6 +15,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedAssessmentsNewRouteImport } from './routes/_authenticated/assessments.new'
 import { Route as AuthenticatedAssessmentsIdAnonymiseRouteImport } from './routes/_authenticated/assessments.$id.anonymise'
+import { Route as AuthenticatedAssessmentsIdCertificateRouteImport } from './routes/_authenticated/assessments.$id.certificate'
 import { Route as AuthenticatedAssessmentsIdProcessingRouteImport } from './routes/_authenticated/assessments.$id.processing'
 import { Route as AuthenticatedAssessmentsIdResultsRouteImport } from './routes/_authenticated/assessments.$id.results'
 
@@ -49,6 +50,12 @@ const AuthenticatedAssessmentsIdAnonymiseRoute =
     path: '/assessments/$id/anonymise',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedAssessmentsIdCertificateRoute =
+  AuthenticatedAssessmentsIdCertificateRouteImport.update({
+    id: '/assessments/$id/certificate',
+    path: '/assessments/$id/certificate',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedAssessmentsIdProcessingRoute =
   AuthenticatedAssessmentsIdProcessingRouteImport.update({
     id: '/assessments/$id/processing',
@@ -68,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/assessments/new': typeof AuthenticatedAssessmentsNewRoute
   '/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
+  '/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
   '/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
   '/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
 }
@@ -77,6 +85,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/assessments/new': typeof AuthenticatedAssessmentsNewRoute
   '/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
+  '/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
   '/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
   '/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
 }
@@ -88,6 +97,7 @@ export interface FileRoutesById {
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/assessments/new': typeof AuthenticatedAssessmentsNewRoute
   '/_authenticated/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
+  '/_authenticated/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
   '/_authenticated/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
   '/_authenticated/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
 }
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/assessments/new'
     | '/assessments/$id/anonymise'
+    | '/assessments/$id/certificate'
     | '/assessments/$id/processing'
     | '/assessments/$id/results'
   fileRoutesByTo: FileRoutesByTo
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/assessments/new'
     | '/assessments/$id/anonymise'
+    | '/assessments/$id/certificate'
     | '/assessments/$id/processing'
     | '/assessments/$id/results'
   id:
@@ -118,6 +130,7 @@ export interface FileRouteTypes {
     | '/_authenticated/dashboard'
     | '/_authenticated/assessments/new'
     | '/_authenticated/assessments/$id/anonymise'
+    | '/_authenticated/assessments/$id/certificate'
     | '/_authenticated/assessments/$id/processing'
     | '/_authenticated/assessments/$id/results'
   fileRoutesById: FileRoutesById
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAssessmentsIdAnonymiseRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/assessments/$id/certificate': {
+      id: '/_authenticated/assessments/$id/certificate'
+      path: '/assessments/$id/certificate'
+      fullPath: '/assessments/$id/certificate'
+      preLoaderRoute: typeof AuthenticatedAssessmentsIdCertificateRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/assessments/$id/processing': {
       id: '/_authenticated/assessments/$id/processing'
       path: '/assessments/$id/processing'
@@ -193,6 +213,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedAssessmentsNewRoute: typeof AuthenticatedAssessmentsNewRoute
   AuthenticatedAssessmentsIdAnonymiseRoute: typeof AuthenticatedAssessmentsIdAnonymiseRoute
+  AuthenticatedAssessmentsIdCertificateRoute: typeof AuthenticatedAssessmentsIdCertificateRoute
   AuthenticatedAssessmentsIdProcessingRoute: typeof AuthenticatedAssessmentsIdProcessingRoute
   AuthenticatedAssessmentsIdResultsRoute: typeof AuthenticatedAssessmentsIdResultsRoute
 }
@@ -202,6 +223,8 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAssessmentsNewRoute: AuthenticatedAssessmentsNewRoute,
   AuthenticatedAssessmentsIdAnonymiseRoute:
     AuthenticatedAssessmentsIdAnonymiseRoute,
+  AuthenticatedAssessmentsIdCertificateRoute:
+    AuthenticatedAssessmentsIdCertificateRoute,
   AuthenticatedAssessmentsIdProcessingRoute:
     AuthenticatedAssessmentsIdProcessingRoute,
   AuthenticatedAssessmentsIdResultsRoute:
