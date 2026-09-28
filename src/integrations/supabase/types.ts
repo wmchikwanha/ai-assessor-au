@@ -14,7 +14,135 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      assessments: {
+        Row: {
+          aqf_level: number
+          certificate: Json | null
+          certificate_hash: string | null
+          certificate_history: Json
+          clean_text: string
+          cohort_size: number
+          coordinator: string
+          created_at: string
+          delivery_mode: string
+          discipline: string
+          id: string
+          learning_outcomes: string
+          model: string | null
+          original_text: string
+          privacy: Json
+          privacy_cleared: boolean
+          program: string
+          prompt_version: string | null
+          provider: string
+          school: string
+          scores: Json | null
+          selected_stance: string | null
+          status: string
+          swaps: Json | null
+          teqsa_pathway: string
+          title: string
+          unit_code: string
+          unit_title: string
+          updated_at: string
+          user_id: string
+          variants: Json | null
+        }
+        Insert: {
+          aqf_level?: number
+          certificate?: Json | null
+          certificate_hash?: string | null
+          certificate_history?: Json
+          clean_text?: string
+          cohort_size?: number
+          coordinator?: string
+          created_at?: string
+          delivery_mode?: string
+          discipline?: string
+          id?: string
+          learning_outcomes?: string
+          model?: string | null
+          original_text?: string
+          privacy?: Json
+          privacy_cleared?: boolean
+          program?: string
+          prompt_version?: string | null
+          provider?: string
+          school?: string
+          scores?: Json | null
+          selected_stance?: string | null
+          status?: string
+          swaps?: Json | null
+          teqsa_pathway?: string
+          title?: string
+          unit_code?: string
+          unit_title?: string
+          updated_at?: string
+          user_id?: string
+          variants?: Json | null
+        }
+        Update: {
+          aqf_level?: number
+          certificate?: Json | null
+          certificate_hash?: string | null
+          certificate_history?: Json
+          clean_text?: string
+          cohort_size?: number
+          coordinator?: string
+          created_at?: string
+          delivery_mode?: string
+          discipline?: string
+          id?: string
+          learning_outcomes?: string
+          model?: string | null
+          original_text?: string
+          privacy?: Json
+          privacy_cleared?: boolean
+          program?: string
+          prompt_version?: string | null
+          provider?: string
+          school?: string
+          scores?: Json | null
+          selected_stance?: string | null
+          status?: string
+          swaps?: Json | null
+          teqsa_pathway?: string
+          title?: string
+          unit_code?: string
+          unit_title?: string
+          updated_at?: string
+          user_id?: string
+          variants?: Json | null
+        }
+        Relationships: []
+      }
+      context_anchors: {
+        Row: {
+          au_equivalent: string
+          discipline: string
+          generic_term: string
+          id: string
+          last_checked: string
+          source: string
+        }
+        Insert: {
+          au_equivalent: string
+          discipline: string
+          generic_term: string
+          id?: string
+          last_checked?: string
+          source: string
+        }
+        Update: {
+          au_equivalent?: string
+          discipline?: string
+          generic_term?: string
+          id?: string
+          last_checked?: string
+          source?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
