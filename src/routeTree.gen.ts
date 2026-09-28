@@ -10,33 +10,135 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedAssessmentsNewRouteImport } from './routes/_authenticated/assessments.new'
+import { Route as AuthenticatedAssessmentsIdAnonymiseRouteImport } from './routes/_authenticated/assessments.$id.anonymise'
+import { Route as AuthenticatedAssessmentsIdCertificateRouteImport } from './routes/_authenticated/assessments.$id.certificate'
+import { Route as AuthenticatedAssessmentsIdProcessingRouteImport } from './routes/_authenticated/assessments.$id.processing'
+import { Route as AuthenticatedAssessmentsIdResultsRouteImport } from './routes/_authenticated/assessments.$id.results'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAssessmentsNewRoute =
+  AuthenticatedAssessmentsNewRouteImport.update({
+    id: '/assessments/new',
+    path: '/assessments/new',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAssessmentsIdAnonymiseRoute =
+  AuthenticatedAssessmentsIdAnonymiseRouteImport.update({
+    id: '/assessments/$id/anonymise',
+    path: '/assessments/$id/anonymise',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAssessmentsIdCertificateRoute =
+  AuthenticatedAssessmentsIdCertificateRouteImport.update({
+    id: '/assessments/$id/certificate',
+    path: '/assessments/$id/certificate',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAssessmentsIdProcessingRoute =
+  AuthenticatedAssessmentsIdProcessingRouteImport.update({
+    id: '/assessments/$id/processing',
+    path: '/assessments/$id/processing',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAssessmentsIdResultsRoute =
+  AuthenticatedAssessmentsIdResultsRouteImport.update({
+    id: '/assessments/$id/results',
+    path: '/assessments/$id/results',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/assessments/new': typeof AuthenticatedAssessmentsNewRoute
+  '/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
+  '/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
+  '/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
+  '/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/assessments/new': typeof AuthenticatedAssessmentsNewRoute
+  '/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
+  '/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
+  '/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
+  '/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/assessments/new': typeof AuthenticatedAssessmentsNewRoute
+  '/_authenticated/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
+  '/_authenticated/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
+  '/_authenticated/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
+  '/_authenticated/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/assessments/new'
+    | '/assessments/$id/anonymise'
+    | '/assessments/$id/certificate'
+    | '/assessments/$id/processing'
+    | '/assessments/$id/results'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/assessments/new'
+    | '/assessments/$id/anonymise'
+    | '/assessments/$id/certificate'
+    | '/assessments/$id/processing'
+    | '/assessments/$id/results'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/_authenticated/dashboard'
+    | '/_authenticated/assessments/new'
+    | '/_authenticated/assessments/$id/anonymise'
+    | '/_authenticated/assessments/$id/certificate'
+    | '/_authenticated/assessments/$id/processing'
+    | '/_authenticated/assessments/$id/results'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +150,94 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/assessments/new': {
+      id: '/_authenticated/assessments/new'
+      path: '/assessments/new'
+      fullPath: '/assessments/new'
+      preLoaderRoute: typeof AuthenticatedAssessmentsNewRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/assessments/$id/anonymise': {
+      id: '/_authenticated/assessments/$id/anonymise'
+      path: '/assessments/$id/anonymise'
+      fullPath: '/assessments/$id/anonymise'
+      preLoaderRoute: typeof AuthenticatedAssessmentsIdAnonymiseRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/assessments/$id/certificate': {
+      id: '/_authenticated/assessments/$id/certificate'
+      path: '/assessments/$id/certificate'
+      fullPath: '/assessments/$id/certificate'
+      preLoaderRoute: typeof AuthenticatedAssessmentsIdCertificateRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/assessments/$id/processing': {
+      id: '/_authenticated/assessments/$id/processing'
+      path: '/assessments/$id/processing'
+      fullPath: '/assessments/$id/processing'
+      preLoaderRoute: typeof AuthenticatedAssessmentsIdProcessingRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/assessments/$id/results': {
+      id: '/_authenticated/assessments/$id/results'
+      path: '/assessments/$id/results'
+      fullPath: '/assessments/$id/results'
+      preLoaderRoute: typeof AuthenticatedAssessmentsIdResultsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedAssessmentsNewRoute: typeof AuthenticatedAssessmentsNewRoute
+  AuthenticatedAssessmentsIdAnonymiseRoute: typeof AuthenticatedAssessmentsIdAnonymiseRoute
+  AuthenticatedAssessmentsIdCertificateRoute: typeof AuthenticatedAssessmentsIdCertificateRoute
+  AuthenticatedAssessmentsIdProcessingRoute: typeof AuthenticatedAssessmentsIdProcessingRoute
+  AuthenticatedAssessmentsIdResultsRoute: typeof AuthenticatedAssessmentsIdResultsRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedAssessmentsNewRoute: AuthenticatedAssessmentsNewRoute,
+  AuthenticatedAssessmentsIdAnonymiseRoute:
+    AuthenticatedAssessmentsIdAnonymiseRoute,
+  AuthenticatedAssessmentsIdCertificateRoute:
+    AuthenticatedAssessmentsIdCertificateRoute,
+  AuthenticatedAssessmentsIdProcessingRoute:
+    AuthenticatedAssessmentsIdProcessingRoute,
+  AuthenticatedAssessmentsIdResultsRoute:
+    AuthenticatedAssessmentsIdResultsRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
