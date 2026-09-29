@@ -106,6 +106,7 @@ function Landing() {
       <footer className="border-t">
         <div className="mx-auto max-w-6xl px-6 py-8 text-xs text-muted-foreground">
           Assayer maps to — and does not certify compliance with — TEQSA guidance, HESF 2021, AQF and the ACSES Framework. Foundational build for academic review.
+          <p className="mt-2">Developed by Walter C. Copyright 2026.</p>
         </div>
       </footer>
     </div>

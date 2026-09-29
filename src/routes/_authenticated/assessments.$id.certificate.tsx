@@ -167,6 +167,7 @@ function Certificate() {
         <footer className="mt-12 border-t pt-4 text-[11px] text-muted-foreground">
           <p>Issued {new Date(log.issued_at).toLocaleString("en-AU", { timeZone: "Australia/Sydney" })} (AEST/AEDT). Standards are mapped to, not certified against, the instruments named.</p>
           <p className="mt-1 break-all font-mono">SHA-256 (canonical key-sorted JSON): {hash}</p>
+          <p className="mt-2">Developed by Walter C. Copyright 2026.</p>
           {history.length > 0 && (
             <div className="mt-2">
               <p>Supersession record:</p>

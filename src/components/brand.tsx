@@ -78,6 +78,9 @@ export function AppShell({ children, step }: { children: ReactNode; step?: numbe
         )}
       </header>
       <main className="mx-auto max-w-6xl px-6 py-10">{children}</main>
+      <footer className="border-t no-print">
+        <div className="mx-auto max-w-6xl px-6 py-6 text-xs text-muted-foreground">Developed by Walter C. Copyright 2026.</div>
+      </footer>
     </div>
   );
 }
