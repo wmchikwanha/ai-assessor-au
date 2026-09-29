@@ -45,7 +45,7 @@ export type Database = {
           unit_code: string
           unit_title: string
           updated_at: string
-          user_id: string
+          user_id: string | null
           variants: Json | null
         }
         Insert: {
@@ -78,7 +78,7 @@ export type Database = {
           unit_code?: string
           unit_title?: string
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
           variants?: Json | null
         }
         Update: {
@@ -111,7 +111,7 @@ export type Database = {
           unit_code?: string
           unit_title?: string
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
           variants?: Json | null
         }
         Relationships: []
