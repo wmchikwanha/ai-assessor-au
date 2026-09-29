@@ -14,6 +14,7 @@ export function renderErrorPage(): string {
       a, button { padding: 0.5rem 1rem; border-radius: 0.375rem; font: inherit; cursor: pointer; text-decoration: none; border: 1px solid transparent; }
       .primary { background: #111; color: #fff; }
       .secondary { background: #fff; color: #111; border-color: #d1d5db; }
+      .footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #d1d5db; color: #6b7280; font-size: 0.75rem; }
     </style>
   </head>
   <body>
@@ -24,6 +25,7 @@ export function renderErrorPage(): string {
         <button class="primary" onclick="location.reload()">Try again</button>
         <a class="secondary" href="/">Go home</a>
       </div>
+      <div class="footer">Developed by Walter C. Copyright 2026.</div>
     </div>
   </body>
 </html>`;
