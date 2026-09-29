@@ -349,7 +349,7 @@ function GuidePage() {
 
       <footer className="border-t bg-paper">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <p>Assayer supports evidence-informed academic judgement. Institutional policy remains authoritative.</p>
+          <p>Assayer supports evidence-informed academic judgement. Institutional policy remains authoritative. Developed by Walter C. Copyright 2026.</p>
           <div className="flex gap-4"><Link to="/">Home</Link><Link to="/dashboard">Workbench</Link></div>
         </div>
       </footer>
