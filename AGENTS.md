@@ -15,3 +15,4 @@
 - src/lib/privacy-scan.ts is shared by browser gate and server tripwire — one definition of personal information.
 - Certificates are hashed server-side over canonical key-sorted JSON (src/lib/canonical.ts) and persisted once; regenerate is explicit and recorded in certificate_history.
 - Authenticated pages live under src/routes/_authenticated (ssr:false gate) and read data with the browser client under RLS.
+- The comprehensive Guide & FAQ is a standalone public `/guide` route so it can be shared without entering the workbench.

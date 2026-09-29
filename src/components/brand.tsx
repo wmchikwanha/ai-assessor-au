@@ -60,6 +60,9 @@ export function AppShell({ children, step }: { children: ReactNode; step?: numbe
             <Link to="/assessments/new" className="text-muted-foreground hover:text-foreground" activeProps={{ className: "text-foreground" }}>
               New assay
             </Link>
+            <Link to="/guide" className="text-muted-foreground hover:text-foreground" activeProps={{ className: "text-foreground" }}>
+              Guide
+            </Link>
             <button
               onClick={async () => {
                 await supabase.auth.signOut();
