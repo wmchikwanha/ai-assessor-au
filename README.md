@@ -10,7 +10,7 @@ It is deliberately **not an AI detector**. Its central proposition is that asses
 
 Generative AI changes the conditions under which a conventional take-home assessment can evidence learning. An assessment may remain aligned to its course learning outcomes yet become weak evidence of a student's own judgement, verification, process, ethical reasoning, or contextual application. Assayer is intended to make that design problem inspectable and actionable.
 
-The workbench takes an assessment an academic already uses, records its educational context, applies a privacy gate, produces three deliberate redesign options, localises generic examples to an Australian context, scores the redesigns against five adaptive capabilities, and files a hash-stamped governance record called an **Assay Certificate**.
+The workbench takes an assessment an academic already uses, records its educational context, applies a privacy gate, produces three deliberate redesign options, localises generic examples to an Australian context, scores the redesigns against five capability criteria, and files a hash-stamped governance record called an **Assay Certificate**.
 
 ## Core utility
 
@@ -120,7 +120,7 @@ The second pass compares each draft with `context_anchors`. It can replace gener
 
 The seed table includes examples spanning business, information technology, health, education, and engineering, including Australian organisations and frameworks such as ASIC, ACCC, RBA, ATO, APRA, AASB, TEQSA, HESF, OAIC, ASD Essential Eight, Ahpra, TGA, Engineers Australia, Safe Work Australia, and the National Construction Code. The table is a starting point and requires institutional maintenance and source checking.
 
-### 6. Adaptive Capabilities Alignment scoring
+### 6. Capability Criteria Alignment scoring
 
 The third pass scores every stance against exactly five criteria worth 20 marks each:
 
@@ -143,7 +143,7 @@ After a stance is selected, the certificate pass creates a nine-section Faculty 
 3. Redesign Rationale
 4. AI Tools and Systems Considered and Used
 5. Pedagogical Justification
-6. Adaptive Capabilities and Employability Alignment Reasoning
+6. Capability Criteria Alignment
 7. Standards and Frameworks Mapping
 8. Integrity, Fairness, Accessibility and Contestability
 9. Declaration

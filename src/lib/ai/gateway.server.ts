@@ -306,7 +306,7 @@ async function generateCertificate(db: DB, row: Row, stance: Stance, regenerate:
           model: AI_CONFIG.model,
           prompt_registry_version: PROMPT_VERSION,
           generation_date: issuedAt.slice(0, 10),
-          passes: ["Pass 1: three-stance redesign", "Pass 2: Australian context localisation", "Adaptive capabilities scoring", "Certificate narrative"],
+          passes: ["Pass 1: three-stance redesign", "Pass 2: Australian context localisation", "Capability criteria scoring", "Certificate narrative"],
           localisation_swaps: swaps.map((s) => `${s.original} → ${s.replacement}`),
           guardrail_mapping: [
             "VAISS Guardrail 1 (accountability): unit coordinator is the named accountable human",
@@ -326,7 +326,7 @@ async function generateCertificate(db: DB, row: Row, stance: Stance, regenerate:
       },
       {
         n: 6,
-        title: "Adaptive Capabilities and Employability Alignment Reasoning",
+        title: "Capability Criteria Alignment",
         body: { total: sc.total, out_of: 100, criteria: sc.criteria, employability: n.employability_reasoning, jsa_skills: n.jsa_skills },
       },
       { n: 7, title: "Standards and Frameworks Mapping", body: { rows: n.standards_mapping } },

@@ -132,7 +132,7 @@ export function VariantCard({ v, score, swaps }: { v: Variant; score?: VariantSc
           </p>
         </Section>
         {score && (
-          <Section n={8} title="Adaptive Capabilities Alignment">
+          <Section n={8} title="Capability Criteria Alignment">
             {score.criteria.map((c) => (
               <div key={c.name}>
                 <div className="flex justify-between text-xs"><span className="font-medium">{c.name}</span><span className="font-mono">{c.score}/20</span></div>
