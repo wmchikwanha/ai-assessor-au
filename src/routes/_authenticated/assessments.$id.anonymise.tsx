@@ -13,6 +13,8 @@ import { CATEGORY_LABEL, removeFlag, scanText, type PrivacyFlag } from "@/lib/pr
 export const Route = createFileRoute("/_authenticated/assessments/$id/anonymise")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { title: "Privacy gate — Assayer" },
       { name: "description", content: "Remove Australian personal information before any AI processing." },
       { property: "og:title", content: "Privacy gate — Assayer" },

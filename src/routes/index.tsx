@@ -26,6 +26,7 @@ function Landing() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Wordmark />
           <div className="flex items-center gap-3">
+            <Link to="/ai-ethics" className="text-sm text-muted-foreground hover:text-foreground">AI Ethics</Link>
             <Link to="/guide" className="text-sm text-muted-foreground hover:text-foreground">Guide &amp; FAQ</Link>
             <Link to="/auth" className="text-sm text-muted-foreground hover:text-foreground">Sign in</Link>
             <Button asChild size="sm"><Link to="/auth">Open workbench</Link></Button>
@@ -110,7 +111,7 @@ function Landing() {
       <footer className="border-t">
         <div className="mx-auto max-w-6xl px-6 py-8 text-xs text-muted-foreground">
           Assayer maps to — and does not certify compliance with — TEQSA guidance, HESF 2021, AQF and the ACSES Framework. Prototype for academic review; not piloted, evaluated or institutionally endorsed.
-          <p className="mt-2"><Link to="/guide" className="hover:text-foreground">Guide &amp; FAQ</Link> · Developed by Walter C. Copyright 2026.</p>
+          <p className="mt-2"><Link to="/guide" className="hover:text-foreground">Guide &amp; FAQ</Link> · <Link to="/ai-ethics" className="hover:text-foreground">AI Ethics</Link> · Developed by Walter C. Copyright 2026.</p>
         </div>
       </footer>
     </div>

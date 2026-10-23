@@ -18,6 +18,8 @@ export const Route = createFileRoute("/_authenticated/assessments/$id/results")(
   },
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { title: "Three-stance results — Assayer" },
       { name: "description", content: "AI-Assisted, AI-Limited and AI-Resistant redesigns with process evidence and alignment scores." },
       { property: "og:title", content: "Three-stance results — Assayer" },

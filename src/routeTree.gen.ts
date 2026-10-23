@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AiEthicsRouteImport } from './routes/ai-ethics'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as GuideRouteImport } from './routes/guide'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
@@ -27,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 } as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiEthicsRoute = AiEthicsRouteImport.update({
+  id: '/ai-ethics',
+  path: '/ai-ethics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -77,6 +83,7 @@ const AuthenticatedAssessmentsIdResultsRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai-ethics': typeof AiEthicsRoute
   '/auth': typeof AuthRoute
   '/guide': typeof GuideRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai-ethics': typeof AiEthicsRoute
   '/auth': typeof AuthRoute
   '/guide': typeof GuideRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/ai-ethics': typeof AiEthicsRoute
   '/auth': typeof AuthRoute
   '/guide': typeof GuideRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
@@ -114,6 +123,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ai-ethics'
     | '/auth'
     | '/guide'
     | '/dashboard'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ai-ethics'
     | '/auth'
     | '/guide'
     | '/dashboard'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/ai-ethics'
     | '/auth'
     | '/guide'
     | '/_authenticated/dashboard'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AiEthicsRoute: typeof AiEthicsRoute
   AuthRoute: typeof AuthRoute
   GuideRoute: typeof GuideRoute
 }
@@ -168,6 +181,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-ethics': {
+      id: '/ai-ethics'
+      path: '/ai-ethics'
+      fullPath: '/ai-ethics'
+      preLoaderRoute: typeof AiEthicsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -257,6 +277,7 @@ const AuthenticatedRouteRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AiEthicsRoute: AiEthicsRoute,
   AuthRoute: AuthRoute,
   GuideRoute: GuideRoute,
 }

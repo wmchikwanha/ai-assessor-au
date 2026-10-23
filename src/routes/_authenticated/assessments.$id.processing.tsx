@@ -17,6 +17,8 @@ export const Route = createFileRoute("/_authenticated/assessments/$id/processing
   },
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { title: "Running the assay — Assayer" },
       { name: "description", content: "Two-pass redesign, Australian localisation and capability criteria scoring." },
       { property: "og:title", content: "Running the assay — Assayer" },

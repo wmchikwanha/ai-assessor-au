@@ -13,6 +13,8 @@ import type { Stance } from "@/lib/types";
 export const Route = createFileRoute("/_authenticated/assessments/$id/certificate")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { title: "Assay Certificate — Assayer" },
       { name: "description", content: "Nine-section Faculty AI Governance Log with SHA-256 fingerprint." },
       { property: "og:title", content: "Assay Certificate — Assayer" },

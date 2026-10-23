@@ -8,6 +8,8 @@ import { STANCES, type VariantScore } from "@/lib/types";
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { title: "Dashboard — Assayer" },
       { name: "description", content: "Your assessment assays, redesigns and certificates." },
       { property: "og:title", content: "Dashboard — Assayer" },
