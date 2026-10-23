@@ -1,5 +1,5 @@
 // Versioned prompt registry. Every certificate records PROMPT_VERSION.
-export const PROMPT_VERSION = "assayer-prompts/2026.09.1";
+export const PROMPT_VERSION = "assayer-prompts/2026.10.1";
 
 export const PREAMBLE = `You are Assayer, an assessment-redesign assistant for Australian higher education teaching academics.
 Standing rules:
