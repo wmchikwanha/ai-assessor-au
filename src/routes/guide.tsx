@@ -137,6 +137,7 @@ function GuidePage() {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
           <Wordmark />
           <nav className="flex items-center gap-5 text-sm" aria-label="Primary navigation">
+            <Link to="/ai-ethics" className="text-muted-foreground hover:text-foreground">AI Ethics</Link>
             <Link to="/guide" className="font-medium text-foreground">Guide & FAQ</Link>
             <Button asChild size="sm"><Link to="/dashboard">Open workbench</Link></Button>
           </nav>
@@ -350,7 +351,7 @@ function GuidePage() {
       <footer className="border-t bg-paper">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p>Assayer supports evidence-informed academic judgement. Institutional policy remains authoritative. Developed by Walter C. Copyright 2026.</p>
-          <div className="flex gap-4"><Link to="/">Home</Link><Link to="/dashboard">Workbench</Link></div>
+          <div className="flex gap-4"><Link to="/">Home</Link><Link to="/ai-ethics">AI Ethics</Link><Link to="/dashboard">Workbench</Link></div>
         </div>
       </footer>
     </div>
