@@ -18,9 +18,9 @@ export const Route = createFileRoute("/_authenticated/assessments/$id/processing
   head: () => ({
     meta: [
       { title: "Running the assay — Assayer" },
-      { name: "description", content: "Two-pass redesign, Australian localisation and adaptive capabilities scoring." },
+      { name: "description", content: "Two-pass redesign, Australian localisation and capability criteria scoring." },
       { property: "og:title", content: "Running the assay — Assayer" },
-      { property: "og:description", content: "Two-pass redesign, Australian localisation and adaptive capabilities scoring." },
+      { property: "og:description", content: "Two-pass redesign, Australian localisation and capability criteria scoring." },
     ],
   }),
   component: Processing,

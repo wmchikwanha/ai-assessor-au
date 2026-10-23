@@ -62,7 +62,7 @@ const workflow = [
   {
     number: "03",
     title: "Assay",
-    text: "Generate three structured redesigns, apply Australian context anchors and assess each redesign against five adaptive capabilities.",
+    text: "Generate three structured redesigns, apply Australian context anchors and score each redesign against Assayer's five capability criteria.",
   },
   {
     number: "04",
@@ -262,7 +262,7 @@ function GuidePage() {
                     "Redesign Rationale",
                     "AI Tools and Systems",
                     "Pedagogical Justification",
-                    "Adaptive Capabilities Alignment",
+                    "Capability Criteria Alignment",
                     "Standards and Frameworks Mapping",
                     "Integrity, Fairness and Accessibility",
                     "Declaration",
@@ -288,7 +288,7 @@ function GuidePage() {
                   ["TEQSA reform pathway", "Records whether redesign is situated at program-wide, unit-level or hybrid reform. It helps reviewers see the intended governance context."],
                   ["HESF 2021", "The Higher Education Standards Framework provides threshold standards for Australian higher education providers. Assayer records relevant mapping for review."],
                   ["AQF", "The Australian Qualifications Framework informs expected complexity, autonomy and learning outcomes at the nominated qualification level."],
-                  ["ACSES Framework", "A sector framework for assessment reform in the age of generative AI, including the development of students’ capacity to work critically and ethically with AI."],
+                  ["ACSES Framework", "The Australian Framework for Artificial Intelligence in Higher Education (Australian Centre for Student Equity and Success, 2025). It sets sector principles for ethical, equitable and effective use of AI, with equity for diverse student groups at its centre. It largely leaves assessment to TEQSA guidance; Assayer records how a redesign relates to its equity and ethics principles."],
                   ["AIAS", "The AI Assessment Scale communicates the expected level of AI use in an assessment. Local institutional policy and the full task conditions remain authoritative."],
                 ].map(([term, definition]) => (
                   <div key={term} className="grid gap-2 py-5 sm:grid-cols-[190px_1fr] sm:gap-8">

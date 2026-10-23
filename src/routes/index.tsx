@@ -37,12 +37,15 @@ function Landing() {
         <div>
           <Eyebrow>AI Assessment Governance Workbench · Australian higher education</Eyebrow>
           <h1 className="mt-5 text-5xl font-medium leading-[1.05] text-foreground md:text-6xl">
-            Prove, assessment by assessment, that your unit still evidences learning.
+            Show, assessment by assessment, whether your unit still evidences learning.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
             Paste an assessment you already use. Assayer checks it for student personal information, redesigns it
-            three ways, specifies the process evidence students must submit, scores it strictly against TEQSA's
-            adaptive capabilities, and files a hash-stamped certificate your school can stand behind.
+            three ways, specifies the process evidence students must submit, scores it strictly on five criteria
+            informed by TEQSA's assessment guidance, and files a hash-stamped record for academic and school review.
+          </p>
+          <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-medium text-gold-foreground">
+            Prototype for academic review · not yet piloted or evaluated
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg"><Link to="/auth">Begin an assay</Link></Button>
@@ -62,7 +65,7 @@ function Landing() {
             <AssayStamp className="h-14 w-14 text-seal" />
           </div>
           <div className="mt-6 space-y-3 text-sm">
-            {["Identification", "Original Assessment Summary", "Redesign Rationale", "AI Tools and Systems", "Pedagogical Justification", "Adaptive Capabilities Alignment", "Standards and Frameworks Mapping", "Integrity, Fairness, Accessibility", "Declaration"].map((s, i) => (
+            {["Identification", "Original Assessment Summary", "Redesign Rationale", "AI Tools and Systems", "Pedagogical Justification", "Capability Criteria Alignment", "Standards and Frameworks Mapping", "Integrity, Fairness, Accessibility", "Declaration"].map((s, i) => (
               <div key={s} className="flex items-baseline gap-3 border-b border-dashed pb-2 last:border-0">
                 <span className="font-mono text-xs text-gold-foreground/70">§{i + 1}</span>
                 <span>{s}</span>
@@ -94,7 +97,7 @@ function Landing() {
         {[
           ["Privacy gate", "Scans for Australian personal information — TFN, Medicare, ABN, phones, student IDs — before anything reaches a model. Privacy Act 1988 (Cth), APP 6 and 11."],
           ["Process Evidence Kit", "Drafts, prompts log, decision memo and feedback-response note — the judgement itself becomes assessable."],
-          ["Strict 5 × 20 scoring", "Evaluative judgement, verification, metacognition, ethics, Australian context. Competent redesigns land between 50 and 80."],
+          ["Strict 5 × 20 scoring", "Evaluative judgement, verification, metacognition, ethics, Australian context. Competent redesigns land between 50 and 80. These five criteria are Assayer's own rubric. They draw on, but are not the same as, the four adaptive capabilities in TEQSA's 2026 guidance (digital literacy, distributed cognition, hybrid metacognition, life-long learning). Scores are uncalibrated."],
           ["Assay Certificate", "Nine fixed sections mapped to HESF 2021, AQF, the ACSES Framework and AIAS, fingerprinted with SHA-256."],
         ].map(([t, d]) => (
           <div key={t}>
@@ -106,7 +109,7 @@ function Landing() {
 
       <footer className="border-t">
         <div className="mx-auto max-w-6xl px-6 py-8 text-xs text-muted-foreground">
-          Assayer maps to — and does not certify compliance with — TEQSA guidance, HESF 2021, AQF and the ACSES Framework. Foundational build for academic review.
+          Assayer maps to — and does not certify compliance with — TEQSA guidance, HESF 2021, AQF and the ACSES Framework. Prototype for academic review; not piloted, evaluated or institutionally endorsed.
           <p className="mt-2"><Link to="/guide" className="hover:text-foreground">Guide &amp; FAQ</Link> · Developed by Walter C. Copyright 2026.</p>
         </div>
       </footer>

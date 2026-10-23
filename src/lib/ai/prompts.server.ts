@@ -55,7 +55,7 @@ ${variantJson}`;
 }
 
 export function scorePrompt(variantsJson: string, ctx: string) {
-  return `TASK score_alignment — Adaptive Capabilities Alignment (TEQSA June 2026 adaptive capabilities).
+  return `TASK score_alignment — Capability Criteria Alignment (Assayer's own five-criterion rubric, informed by but not identical to TEQSA's June 2026 adaptive capabilities; scores are uncalibrated).
 Score EACH variant out of 100 across exactly five criteria worth 20 each, in this order:
 1 Evaluative judgement of AI output
 2 Verification and sourcing
