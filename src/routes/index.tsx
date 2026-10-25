@@ -23,9 +23,9 @@ function Landing() {
   return (
     <div className="min-h-screen">
       <header className="border-b">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
           <Wordmark />
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <Link to="/ai-ethics" className="text-sm text-muted-foreground hover:text-foreground">AI Ethics</Link>
             <Link to="/guide" className="text-sm text-muted-foreground hover:text-foreground">Guide &amp; FAQ</Link>
             <Link to="/auth" className="text-sm text-muted-foreground hover:text-foreground">Sign in</Link>

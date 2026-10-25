@@ -59,9 +59,9 @@ export function AppShell({ children, step }: { children: ReactNode; step?: numbe
   return (
     <div className="min-h-screen">
       <header className="no-print border-b bg-paper/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-3">
           <Wordmark to="/dashboard" />
-          <nav className="flex items-center gap-5 text-sm">
+          <nav className="flex flex-wrap items-center gap-5 text-sm">
             <Link to="/dashboard" className="text-muted-foreground hover:text-foreground" activeProps={{ className: "text-foreground" }}>
               Dashboard
             </Link>
