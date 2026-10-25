@@ -134,9 +134,9 @@ function GuidePage() {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b bg-paper/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4 sm:px-8">
           <Wordmark />
-          <nav className="flex items-center gap-5 text-sm" aria-label="Primary navigation">
+          <nav className="flex flex-wrap items-center gap-5 text-sm" aria-label="Primary navigation">
             <Link to="/ai-ethics" className="text-muted-foreground hover:text-foreground">AI Ethics</Link>
             <Link to="/guide" className="font-medium text-foreground">Guide & FAQ</Link>
             <Button asChild size="sm"><Link to="/dashboard">Open workbench</Link></Button>
