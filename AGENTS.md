@@ -17,3 +17,4 @@
 - Authenticated pages live under src/routes/_authenticated (ssr:false gate) and read data with the browser client under RLS.
 - The comprehensive Guide & FAQ is a standalone public `/guide` route so it can be shared without entering the workbench.
 - AI ethics and AI-handling disclosures live on the public `/ai-ethics` route; use shared capability labels and distinguish interpretive framework mapping from official equivalence so public policy remains auditable.
+- The governance review portal is public `/review` routes locked in the UI by a self-selectable test role (src/lib/role.ts); review notes/decisions are append-only rows in assessment_reviews so the review trail stays auditable. Real role security needs auth + user_roles later.
