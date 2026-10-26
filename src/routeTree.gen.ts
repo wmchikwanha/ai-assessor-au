@@ -15,6 +15,8 @@ import { Route as AiEthicsRouteImport } from './routes/ai-ethics'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as GuideRouteImport } from './routes/guide'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as ReviewIndexRouteImport } from './routes/review.index'
+import { Route as ReviewIdRouteImport } from './routes/review.$id'
 import { Route as AuthenticatedAssessmentsNewRouteImport } from './routes/_authenticated/assessments.new'
 import { Route as AuthenticatedAssessmentsIdAnonymiseRouteImport } from './routes/_authenticated/assessments.$id.anonymise'
 import { Route as AuthenticatedAssessmentsIdCertificateRouteImport } from './routes/_authenticated/assessments.$id.certificate'
@@ -49,6 +51,16 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const ReviewIndexRoute = ReviewIndexRouteImport.update({
+  id: '/review/',
+  path: '/review/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewIdRoute = ReviewIdRouteImport.update({
+  id: '/review/$id',
+  path: '/review/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedAssessmentsNewRoute =
   AuthenticatedAssessmentsNewRouteImport.update({
@@ -87,6 +99,8 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/guide': typeof GuideRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/review/$id': typeof ReviewIdRoute
+  '/review/': typeof ReviewIndexRoute
   '/assessments/new': typeof AuthenticatedAssessmentsNewRoute
   '/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
   '/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
@@ -99,6 +113,8 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/guide': typeof GuideRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/review/$id': typeof ReviewIdRoute
+  '/review': typeof ReviewIndexRoute
   '/assessments/new': typeof AuthenticatedAssessmentsNewRoute
   '/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
   '/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
@@ -113,6 +129,8 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/guide': typeof GuideRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/review/$id': typeof ReviewIdRoute
+  '/review/': typeof ReviewIndexRoute
   '/_authenticated/assessments/new': typeof AuthenticatedAssessmentsNewRoute
   '/_authenticated/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
   '/_authenticated/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
@@ -127,6 +145,8 @@ export interface FileRouteTypes {
     | '/auth'
     | '/guide'
     | '/dashboard'
+    | '/review/$id'
+    | '/review/'
     | '/assessments/new'
     | '/assessments/$id/anonymise'
     | '/assessments/$id/certificate'
@@ -139,6 +159,8 @@ export interface FileRouteTypes {
     | '/auth'
     | '/guide'
     | '/dashboard'
+    | '/review/$id'
+    | '/review'
     | '/assessments/new'
     | '/assessments/$id/anonymise'
     | '/assessments/$id/certificate'
@@ -152,6 +174,8 @@ export interface FileRouteTypes {
     | '/auth'
     | '/guide'
     | '/_authenticated/dashboard'
+    | '/review/$id'
+    | '/review/'
     | '/_authenticated/assessments/new'
     | '/_authenticated/assessments/$id/anonymise'
     | '/_authenticated/assessments/$id/certificate'
@@ -165,6 +189,8 @@ export interface RootRouteChildren {
   AiEthicsRoute: typeof AiEthicsRoute
   AuthRoute: typeof AuthRoute
   GuideRoute: typeof GuideRoute
+  ReviewIdRoute: typeof ReviewIdRoute
+  ReviewIndexRoute: typeof ReviewIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -210,6 +236,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/dashboard'
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/review/': {
+      id: '/review/'
+      path: '/review'
+      fullPath: '/review/'
+      preLoaderRoute: typeof ReviewIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/review/$id': {
+      id: '/review/$id'
+      path: '/review/$id'
+      fullPath: '/review/$id'
+      preLoaderRoute: typeof ReviewIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_authenticated/assessments/new': {
       id: '/_authenticated/assessments/new'
@@ -280,6 +320,8 @@ const rootRouteChildren: RootRouteChildren = {
   AiEthicsRoute: AiEthicsRoute,
   AuthRoute: AuthRoute,
   GuideRoute: GuideRoute,
+  ReviewIdRoute: ReviewIdRoute,
+  ReviewIndexRoute: ReviewIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
