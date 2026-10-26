@@ -14,6 +14,47 @@ export type Database = {
   }
   public: {
     Tables: {
+      assessment_reviews: {
+        Row: {
+          assessment_id: string
+          body: string
+          created_at: string
+          decision: string | null
+          id: string
+          kind: string
+          reviewer_name: string
+          stance: string | null
+        }
+        Insert: {
+          assessment_id: string
+          body?: string
+          created_at?: string
+          decision?: string | null
+          id?: string
+          kind?: string
+          reviewer_name?: string
+          stance?: string | null
+        }
+        Update: {
+          assessment_id?: string
+          body?: string
+          created_at?: string
+          decision?: string | null
+          id?: string
+          kind?: string
+          reviewer_name?: string
+          stance?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assessment_reviews_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       assessments: {
         Row: {
           aqf_level: number

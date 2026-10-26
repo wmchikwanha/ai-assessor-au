@@ -2,6 +2,7 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
+import { RoleSwitcher } from "@/components/review";
 
 export function AssayStamp({ className }: { className?: string }) {
   return (
@@ -74,6 +75,10 @@ export function AppShell({ children, step }: { children: ReactNode; step?: numbe
             <Link to="/ai-ethics" className="text-muted-foreground hover:text-foreground" activeProps={{ className: "text-foreground" }}>
               AI Ethics
             </Link>
+            <Link to="/review" className="text-muted-foreground hover:text-foreground" activeProps={{ className: "text-foreground" }}>
+              Review portal
+            </Link>
+            <RoleSwitcher />
             <button
               onClick={async () => {
                 await supabase.auth.signOut();
