@@ -4,6 +4,6 @@
 - [x] Link the page from Home, Guide & FAQ and workbench navigation; verify public access and navigation.
 
 # Open research sandbox
-- [ ] Remove sign-in barriers from the workbench and AI actions while preserving the privacy gate.
-- [ ] Allow shared synthetic assessment and append-only review access without accounts.
-- [ ] Add honest sandbox notices and verify anonymous capture, role-playing, review and certificate access.
+- [x] Remove sign-in barriers from the workbench and AI actions while preserving the privacy gate.
+- [x] Allow shared synthetic assessment and append-only review access without accounts (existing public policies verified through anonymous use).
+- [x] Add honest sandbox notices and verify anonymous capture, role-playing, review and certificate access.
