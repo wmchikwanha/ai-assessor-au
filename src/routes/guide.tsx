@@ -80,6 +80,8 @@ const faqGroups = [
   {
     category: "Using Assayer",
     items: [
+      ["Do I need to sign up or verify my email?", "No. Assayer is an open research sandbox, not a live product. Anyone can test synthetic scenarios and role-play as a Unit coordinator, Governance reviewer or Administrator. No account, real name or institutional email is required."],
+      ["Are my sandbox entries private?", "No. Saved assessments, metadata, generated outputs and review notes are shared with all visitors. Use only synthetic information and fictional reviewer aliases. Role-playing is not security, and removing sign-in does not mean zero data collection; service and log retention limits are described on the AI Ethics page."],
       ["What should I enter first?", "Begin with an assessment that already exists. Use the student-facing brief and rubric rather than a high-level description, then check the metadata before continuing."],
       ["Can I use the sample assessments?", "Yes. The sample records are synthetic and are intended to demonstrate the complete journey without using real student or staff information."],
       ["Can I upload a PDF or Word document?", "Yes. Text is extracted in your browser so you can review it before capture. Layout, images, tables and tracked changes may not transfer perfectly, so compare the extracted text with the source."],
@@ -339,7 +341,7 @@ function GuidePage() {
               <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
                 <div>
                   <h2 className="text-3xl">Ready to apply the guide?</h2>
-                  <p className="mt-2 text-sm text-muted-foreground">Start with a synthetic sample or capture an assessment you are authorised to review.</p>
+                  <p className="mt-2 text-sm text-muted-foreground">Start with a synthetic sample. No sign-up or verification is required.</p>
                 </div>
                 <Button asChild size="lg"><Link to="/dashboard">Open workbench</Link></Button>
               </div>

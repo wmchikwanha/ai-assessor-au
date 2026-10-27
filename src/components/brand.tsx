@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { SandboxNotice } from "@/components/sandbox-notice";
 import { cn } from "@/lib/utils";
 import { RoleSwitcher } from "@/components/review";
 
@@ -56,7 +56,6 @@ export function SiteFooter() {
 }
 
 export function AppShell({ children, step }: { children: ReactNode; step?: number }) {
-  const navigate = useNavigate();
   return (
     <div className="min-h-screen">
       <header className="no-print border-b bg-paper/80 backdrop-blur">
@@ -79,15 +78,6 @@ export function AppShell({ children, step }: { children: ReactNode; step?: numbe
               Review portal
             </Link>
             <RoleSwitcher />
-            <button
-              onClick={async () => {
-                await supabase.auth.signOut();
-                navigate({ to: "/" });
-              }}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Sign out
-            </button>
           </nav>
         </div>
         {step !== undefined && (
@@ -96,6 +86,7 @@ export function AppShell({ children, step }: { children: ReactNode; step?: numbe
           </div>
         )}
       </header>
+      <SandboxNotice />
       <main className="mx-auto max-w-6xl px-6 py-10">{children}</main>
       <SiteFooter />
     </div>

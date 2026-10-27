@@ -54,6 +54,7 @@ const mapping = [
 ] as const;
 
 const policy = [
+  ["Open sandbox and simulated roles", "Assayer is a synthetic research artefact, not a live institutional product. No sign-up, sign-in, email verification, real name or institutional email is required. Anyone can choose Unit coordinator, Governance reviewer or Administrator. These roles mimic a workflow; they do not verify identity or grant real institutional authority. Assessments and review notes are saved in a shared workspace visible to all visitors. Use fictional aliases and synthetic material only. No sign-in does not mean zero data collection or a guarantee that service logs cannot contain technical identifiers."],
   ["What AI does", "Assayer uses generative AI to draft AI-Assisted, AI-Limited and AI-Resistant assessment redesigns, suggest Australian contextual replacements, score drafts against its five criteria and draft narrative content for the Assay Certificate. These are review materials, not automated academic approvals or student grades."],
   ["What stays with people", "Academic staff choose the stance, check learning outcomes and sources, assess feasibility and equity, and seek the required institutional review. Assayer does not detect AI-written text, infer student authorship, decide misconduct or replace authorised academic judgement."],
   ["What is sent for AI processing", "After privacy clearance, AI prompts can contain the cleaned assessment text, learning outcomes, provider and unit/program metadata, AQF level, discipline, cohort size, delivery mode and reform pathway. Later steps can also include generated drafts, scores and relevant Australian context anchors. Review all submitted fields, not just the assessment text."],
@@ -95,7 +96,7 @@ function AIEthicsPage() {
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">Human judgement at the centre. Equity in the design. AI use open to scrutiny.</p>
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">How Assayer’s five capability criteria relate to ACSES and TEQSA—and what our prototype does, stores and cannot promise.</p>
               <p className="mt-6 border-l-2 border-seal pl-4 text-sm text-seal">Prototype for academic review; not piloted, evaluated or institutionally endorsed.</p>
-              <p className="mt-4 font-mono text-xs text-muted-foreground">Policy version 1.0 · Reviewed 23 October 2026</p>
+              <p className="mt-4 font-mono text-xs text-muted-foreground">Policy version 1.1 · Reviewed 27 October 2026</p>
             </div>
             <AssayStamp className="hidden h-28 w-28 self-center text-gold md:block" />
           </div>

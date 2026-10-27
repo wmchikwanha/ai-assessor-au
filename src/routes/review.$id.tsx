@@ -124,8 +124,8 @@ function ReviewDetail() {
             <section className="mt-10 grid gap-6 lg:grid-cols-2">
               <div className="rounded-md border bg-paper p-6">
                 <h2 className="text-2xl">Add a note or decision</h2>
-                <label className="mt-4 block text-sm">Your name
-                  <input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Dr A. Reviewer" className="mt-1 w-full rounded-sm border bg-background px-3 py-2" />
+                <label className="mt-4 block text-sm">Fictional reviewer alias (optional)
+                  <input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Sandbox Reviewer A — not your real name" className="mt-1 w-full rounded-sm border bg-background px-3 py-2" />
                 </label>
                 <label className="mt-3 block text-sm">About which variant (optional)
                   <select value={stance} onChange={(e) => setStance(e.target.value)} className="mt-1 w-full rounded-sm border bg-background px-3 py-2">
