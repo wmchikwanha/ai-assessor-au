@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AssayStamp, Wordmark, Eyebrow } from "@/components/brand";
 import { Button } from "@/components/ui/button";
 import { STANCES } from "@/lib/types";
+import { SandboxNotice } from "@/components/sandbox-notice";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,11 +29,11 @@ function Landing() {
           <div className="flex flex-wrap items-center gap-3">
             <Link to="/ai-ethics" className="text-sm text-muted-foreground hover:text-foreground">AI Ethics</Link>
             <Link to="/guide" className="text-sm text-muted-foreground hover:text-foreground">Guide &amp; FAQ</Link>
-            <Link to="/auth" className="text-sm text-muted-foreground hover:text-foreground">Sign in</Link>
-            <Button asChild size="sm"><Link to="/auth">Open workbench</Link></Button>
+            <Button asChild size="sm"><Link to="/dashboard">Open workbench</Link></Button>
           </div>
         </div>
       </header>
+      <SandboxNotice />
 
       <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1.3fr_1fr]">
         <div>
@@ -49,7 +50,7 @@ function Landing() {
             Prototype for academic review · not yet piloted or evaluated
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg"><Link to="/auth">Begin an assay</Link></Button>
+            <Button asChild size="lg"><Link to="/assessments/new" search={{ demo: true }}>Begin a synthetic assay</Link></Button>
             <Button asChild size="lg" variant="outline"><a href="#how">How it works</a></Button>
           </div>
           <p className="mt-8 font-display text-base italic text-muted-foreground">

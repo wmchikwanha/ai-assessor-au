@@ -47,15 +47,15 @@ function ReviewDetail() {
   const [busy, setBusy] = useState(false);
 
   async function add(kind: "comment" | "decision", decision?: "approved" | "returned") {
-    if (kind === "comment" && !body.trim()) return toast.error("Write a note first.");
-    if (kind === "decision" && decision === "returned" && !body.trim()) return toast.error("Explain what needs revision in the note box.");
+    if (kind === "comment" && !body.trim()) { toast.error("Write a note first."); return; }
+    if (kind === "decision" && decision === "returned" && !body.trim()) { toast.error("Explain what needs revision in the note box."); return; }
     setBusy(true);
     const { error } = await supabase.from("assessment_reviews").insert({
       assessment_id: id, kind, decision: decision ?? null, stance: stance || null, body: body.trim(),
       reviewer_name: `${name.trim() || "Reviewer"} (${role})`,
     });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     setBody("");
     toast.success(kind === "decision" ? "Decision recorded." : "Note added.");
     qc.invalidateQueries({ queryKey: reviewsKey });
@@ -124,8 +124,8 @@ function ReviewDetail() {
             <section className="mt-10 grid gap-6 lg:grid-cols-2">
               <div className="rounded-md border bg-paper p-6">
                 <h2 className="text-2xl">Add a note or decision</h2>
-                <label className="mt-4 block text-sm">Your name
-                  <input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Dr A. Reviewer" className="mt-1 w-full rounded-sm border bg-background px-3 py-2" />
+                <label className="mt-4 block text-sm">Fictional reviewer alias (optional)
+                  <input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Sandbox Reviewer A — not your real name" className="mt-1 w-full rounded-sm border bg-background px-3 py-2" />
                 </label>
                 <label className="mt-3 block text-sm">About which variant (optional)
                   <select value={stance} onChange={(e) => setStance(e.target.value)} className="mt-1 w-full rounded-sm border bg-background px-3 py-2">

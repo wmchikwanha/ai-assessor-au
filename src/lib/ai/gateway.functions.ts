@@ -2,7 +2,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { setResponseStatus } from "@tanstack/react-start/server";
 import { z } from "zod";
-import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { sandboxDatabase } from "./sandbox-db.server";
 import { runTask, GatewayError } from "./gateway.server";
 
 const Input = z.object({
@@ -15,12 +15,13 @@ const Input = z.object({
 });
 
 export const aiGateway = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
   .inputValidator((d: unknown) => Input.parse(d))
-  .handler(async ({ data, context }) => {
+  .handler(async ({ data }) => {
     try {
-      const email = (context.claims as { email?: string })?.email ?? context.userId;
-      const result = await runTask(data.task, data.payload, context.supabase, email);
+      const url = process.env["SUPABASE_URL"];
+      const key = process.env["SUPABASE_PUBLISHABLE_KEY"];
+      if (!url || !key) throw new Error("The research sandbox service is unavailable.");
+      const result = await runTask(data.task, data.payload, sandboxDatabase(url, key), "Synthetic sandbox academic (simulated)");
       return JSON.parse(JSON.stringify(result)) as { ok?: boolean };
     } catch (e) {
       if (e instanceof GatewayError) {

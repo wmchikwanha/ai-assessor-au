@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { assessmentQuery } from "@/lib/assessments";
 import { CATEGORY_LABEL, removeFlag, scanText, type PrivacyFlag } from "@/lib/privacy-scan";
 
-export const Route = createFileRoute("/_authenticated/assessments/$id/anonymise")({
+export const Route = createFileRoute("/_sandbox/assessments/$id/anonymise")({
   head: () => ({
     meta: [
       { property: "og:type", content: "website" },

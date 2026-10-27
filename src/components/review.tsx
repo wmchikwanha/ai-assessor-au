@@ -8,7 +8,7 @@ export function RoleSwitcher() {
   const { role, setRole } = useRole();
   return (
     <label className="flex items-center gap-2 text-xs text-muted-foreground">
-      <span className="uppercase tracking-[0.12em]">Acting as</span>
+       <span className="uppercase tracking-[0.12em]">Role-play as</span>
       <select
         aria-label="Acting role"
         value={role}
@@ -27,10 +27,10 @@ export function ReviewerGate({ children }: { children: ReactNode }) {
   return (
     <div className="mx-auto max-w-xl rounded-md border border-seal/40 bg-paper p-8 text-center">
       <Lock className="mx-auto h-8 w-8 text-seal" aria-hidden />
-      <h1 className="mt-4 text-3xl">Reviewers only</h1>
+      <h1 className="mt-4 text-3xl">Governance reviewer role-play</h1>
       <p className="mt-2 text-muted-foreground">
-        The governance review portal is locked to the Governance reviewer and Administrator roles.
-        In this test environment you can switch role yourself to try the review journey.
+        This is a simulated role boundary, not an access restriction. Anyone can act as a
+        Governance reviewer or Administrator without an account or verification.
       </p>
       <div className="mt-6 flex justify-center gap-3">
         <Button onClick={() => setRole("reviewer")}>Act as Governance reviewer</Button>
