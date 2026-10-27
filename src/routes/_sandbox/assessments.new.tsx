@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { DEMO_ASSESSMENT } from "@/lib/demo";
 import { extractText } from "@/lib/extract";
 
-export const Route = createFileRoute("/_authenticated/assessments/new")({
+export const Route = createFileRoute("/_sandbox/assessments/new")({
   validateSearch: z.object({ demo: z.boolean().optional() }),
   head: () => ({
     meta: [

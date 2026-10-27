@@ -11,7 +11,7 @@ import { assessmentQuery } from "@/lib/assessments";
 import { aiGateway } from "@/lib/ai/gateway.functions";
 import { STANCES, type Stance, type Swap, type Variant, type VariantScore } from "@/lib/types";
 
-export const Route = createFileRoute("/_authenticated/assessments/$id/results")({
+export const Route = createFileRoute("/_sandbox/assessments/$id/results")({
   beforeLoad: async ({ params }) => {
     const { data } = await supabase.from("assessments").select("privacy_cleared").eq("id", params.id).single();
     if (!data?.privacy_cleared) throw redirect({ to: "/assessments/$id/anonymise", params });

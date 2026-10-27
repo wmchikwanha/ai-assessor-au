@@ -8,7 +8,7 @@ import { AppShell, Eyebrow } from "@/components/brand";
 import { Button } from "@/components/ui/button";
 import { aiGateway } from "@/lib/ai/gateway.functions";
 
-export const Route = createFileRoute("/_authenticated/assessments/$id/processing")({
+export const Route = createFileRoute("/_sandbox/assessments/$id/processing")({
   // Route guard: the privacy gate cannot be bypassed by navigation.
   beforeLoad: async ({ params }) => {
     const { data } = await supabase.from("assessments").select("privacy_cleared,status").eq("id", params.id).single();

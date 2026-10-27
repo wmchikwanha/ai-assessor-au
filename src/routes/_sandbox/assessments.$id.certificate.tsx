@@ -10,7 +10,7 @@ import { aiGateway } from "@/lib/ai/gateway.functions";
 import { canonicalize, sha256Hex } from "@/lib/canonical";
 import type { Stance } from "@/lib/types";
 
-export const Route = createFileRoute("/_authenticated/assessments/$id/certificate")({
+export const Route = createFileRoute("/_sandbox/assessments/$id/certificate")({
   head: () => ({
     meta: [
       { property: "og:type", content: "website" },

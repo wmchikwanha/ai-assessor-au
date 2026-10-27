@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { assessmentsListQuery, nextStepFor } from "@/lib/assessments";
 import { STANCES, type VariantScore } from "@/lib/types";
 
-export const Route = createFileRoute("/_authenticated/dashboard")({
+export const Route = createFileRoute("/_sandbox/dashboard")({
   head: () => ({
     meta: [
       { property: "og:type", content: "website" },
