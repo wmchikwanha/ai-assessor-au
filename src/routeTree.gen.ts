@@ -10,26 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as SandboxRouteRouteImport } from './routes/_sandbox/route'
 import { Route as AiEthicsRouteImport } from './routes/ai-ethics'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as GuideRouteImport } from './routes/guide'
-import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as SandboxDashboardRouteImport } from './routes/_sandbox/dashboard'
 import { Route as ReviewIndexRouteImport } from './routes/review.index'
 import { Route as ReviewIdRouteImport } from './routes/review.$id'
-import { Route as AuthenticatedAssessmentsNewRouteImport } from './routes/_authenticated/assessments.new'
-import { Route as AuthenticatedAssessmentsIdAnonymiseRouteImport } from './routes/_authenticated/assessments.$id.anonymise'
-import { Route as AuthenticatedAssessmentsIdCertificateRouteImport } from './routes/_authenticated/assessments.$id.certificate'
-import { Route as AuthenticatedAssessmentsIdProcessingRouteImport } from './routes/_authenticated/assessments.$id.processing'
-import { Route as AuthenticatedAssessmentsIdResultsRouteImport } from './routes/_authenticated/assessments.$id.results'
+import { Route as SandboxAssessmentsNewRouteImport } from './routes/_sandbox/assessments.new'
+import { Route as SandboxAssessmentsIdAnonymiseRouteImport } from './routes/_sandbox/assessments.$id.anonymise'
+import { Route as SandboxAssessmentsIdCertificateRouteImport } from './routes/_sandbox/assessments.$id.certificate'
+import { Route as SandboxAssessmentsIdProcessingRouteImport } from './routes/_sandbox/assessments.$id.processing'
+import { Route as SandboxAssessmentsIdResultsRouteImport } from './routes/_sandbox/assessments.$id.results'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
+const SandboxRouteRoute = SandboxRouteRouteImport.update({
+  id: '/_sandbox',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiEthicsRoute = AiEthicsRouteImport.update({
@@ -47,10 +47,10 @@ const GuideRoute = GuideRouteImport.update({
   path: '/guide',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+const SandboxDashboardRoute = SandboxDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
-  getParentRoute: () => AuthenticatedRouteRoute,
+  getParentRoute: () => SandboxRouteRoute,
 } as any)
 const ReviewIndexRoute = ReviewIndexRouteImport.update({
   id: '/review/',
@@ -62,35 +62,34 @@ const ReviewIdRoute = ReviewIdRouteImport.update({
   path: '/review/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedAssessmentsNewRoute =
-  AuthenticatedAssessmentsNewRouteImport.update({
-    id: '/assessments/new',
-    path: '/assessments/new',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedAssessmentsIdAnonymiseRoute =
-  AuthenticatedAssessmentsIdAnonymiseRouteImport.update({
+const SandboxAssessmentsNewRoute = SandboxAssessmentsNewRouteImport.update({
+  id: '/assessments/new',
+  path: '/assessments/new',
+  getParentRoute: () => SandboxRouteRoute,
+} as any)
+const SandboxAssessmentsIdAnonymiseRoute =
+  SandboxAssessmentsIdAnonymiseRouteImport.update({
     id: '/assessments/$id/anonymise',
     path: '/assessments/$id/anonymise',
-    getParentRoute: () => AuthenticatedRouteRoute,
+    getParentRoute: () => SandboxRouteRoute,
   } as any)
-const AuthenticatedAssessmentsIdCertificateRoute =
-  AuthenticatedAssessmentsIdCertificateRouteImport.update({
+const SandboxAssessmentsIdCertificateRoute =
+  SandboxAssessmentsIdCertificateRouteImport.update({
     id: '/assessments/$id/certificate',
     path: '/assessments/$id/certificate',
-    getParentRoute: () => AuthenticatedRouteRoute,
+    getParentRoute: () => SandboxRouteRoute,
   } as any)
-const AuthenticatedAssessmentsIdProcessingRoute =
-  AuthenticatedAssessmentsIdProcessingRouteImport.update({
+const SandboxAssessmentsIdProcessingRoute =
+  SandboxAssessmentsIdProcessingRouteImport.update({
     id: '/assessments/$id/processing',
     path: '/assessments/$id/processing',
-    getParentRoute: () => AuthenticatedRouteRoute,
+    getParentRoute: () => SandboxRouteRoute,
   } as any)
-const AuthenticatedAssessmentsIdResultsRoute =
-  AuthenticatedAssessmentsIdResultsRouteImport.update({
+const SandboxAssessmentsIdResultsRoute =
+  SandboxAssessmentsIdResultsRouteImport.update({
     id: '/assessments/$id/results',
     path: '/assessments/$id/results',
-    getParentRoute: () => AuthenticatedRouteRoute,
+    getParentRoute: () => SandboxRouteRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -98,44 +97,44 @@ export interface FileRoutesByFullPath {
   '/ai-ethics': typeof AiEthicsRoute
   '/auth': typeof AuthRoute
   '/guide': typeof GuideRoute
-  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/dashboard': typeof SandboxDashboardRoute
   '/review/$id': typeof ReviewIdRoute
   '/review/': typeof ReviewIndexRoute
-  '/assessments/new': typeof AuthenticatedAssessmentsNewRoute
-  '/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
-  '/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
-  '/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
-  '/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
+  '/assessments/new': typeof SandboxAssessmentsNewRoute
+  '/assessments/$id/anonymise': typeof SandboxAssessmentsIdAnonymiseRoute
+  '/assessments/$id/certificate': typeof SandboxAssessmentsIdCertificateRoute
+  '/assessments/$id/processing': typeof SandboxAssessmentsIdProcessingRoute
+  '/assessments/$id/results': typeof SandboxAssessmentsIdResultsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ai-ethics': typeof AiEthicsRoute
   '/auth': typeof AuthRoute
   '/guide': typeof GuideRoute
-  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/dashboard': typeof SandboxDashboardRoute
   '/review/$id': typeof ReviewIdRoute
   '/review': typeof ReviewIndexRoute
-  '/assessments/new': typeof AuthenticatedAssessmentsNewRoute
-  '/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
-  '/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
-  '/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
-  '/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
+  '/assessments/new': typeof SandboxAssessmentsNewRoute
+  '/assessments/$id/anonymise': typeof SandboxAssessmentsIdAnonymiseRoute
+  '/assessments/$id/certificate': typeof SandboxAssessmentsIdCertificateRoute
+  '/assessments/$id/processing': typeof SandboxAssessmentsIdProcessingRoute
+  '/assessments/$id/results': typeof SandboxAssessmentsIdResultsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/_sandbox': typeof SandboxRouteRouteWithChildren
   '/ai-ethics': typeof AiEthicsRoute
   '/auth': typeof AuthRoute
   '/guide': typeof GuideRoute
-  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_sandbox/dashboard': typeof SandboxDashboardRoute
   '/review/$id': typeof ReviewIdRoute
   '/review/': typeof ReviewIndexRoute
-  '/_authenticated/assessments/new': typeof AuthenticatedAssessmentsNewRoute
-  '/_authenticated/assessments/$id/anonymise': typeof AuthenticatedAssessmentsIdAnonymiseRoute
-  '/_authenticated/assessments/$id/certificate': typeof AuthenticatedAssessmentsIdCertificateRoute
-  '/_authenticated/assessments/$id/processing': typeof AuthenticatedAssessmentsIdProcessingRoute
-  '/_authenticated/assessments/$id/results': typeof AuthenticatedAssessmentsIdResultsRoute
+  '/_sandbox/assessments/new': typeof SandboxAssessmentsNewRoute
+  '/_sandbox/assessments/$id/anonymise': typeof SandboxAssessmentsIdAnonymiseRoute
+  '/_sandbox/assessments/$id/certificate': typeof SandboxAssessmentsIdCertificateRoute
+  '/_sandbox/assessments/$id/processing': typeof SandboxAssessmentsIdProcessingRoute
+  '/_sandbox/assessments/$id/results': typeof SandboxAssessmentsIdResultsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -169,23 +168,23 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/_authenticated'
+    | '/_sandbox'
     | '/ai-ethics'
     | '/auth'
     | '/guide'
-    | '/_authenticated/dashboard'
+    | '/_sandbox/dashboard'
     | '/review/$id'
     | '/review/'
-    | '/_authenticated/assessments/new'
-    | '/_authenticated/assessments/$id/anonymise'
-    | '/_authenticated/assessments/$id/certificate'
-    | '/_authenticated/assessments/$id/processing'
-    | '/_authenticated/assessments/$id/results'
+    | '/_sandbox/assessments/new'
+    | '/_sandbox/assessments/$id/anonymise'
+    | '/_sandbox/assessments/$id/certificate'
+    | '/_sandbox/assessments/$id/processing'
+    | '/_sandbox/assessments/$id/results'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  SandboxRouteRoute: typeof SandboxRouteRouteWithChildren
   AiEthicsRoute: typeof AiEthicsRoute
   AuthRoute: typeof AuthRoute
   GuideRoute: typeof GuideRoute
@@ -202,11 +201,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated': {
-      id: '/_authenticated'
+    '/_sandbox': {
+      id: '/_sandbox'
       path: ''
       fullPath: '/'
-      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      preLoaderRoute: typeof SandboxRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-ethics': {
@@ -230,12 +229,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuideRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/dashboard': {
-      id: '/_authenticated/dashboard'
+    '/_sandbox/dashboard': {
+      id: '/_sandbox/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
-      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      preLoaderRoute: typeof SandboxDashboardRouteImport
+      parentRoute: typeof SandboxRouteRoute
     }
     '/review/': {
       id: '/review/'
@@ -251,72 +250,69 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReviewIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/assessments/new': {
-      id: '/_authenticated/assessments/new'
+    '/_sandbox/assessments/new': {
+      id: '/_sandbox/assessments/new'
       path: '/assessments/new'
       fullPath: '/assessments/new'
-      preLoaderRoute: typeof AuthenticatedAssessmentsNewRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      preLoaderRoute: typeof SandboxAssessmentsNewRouteImport
+      parentRoute: typeof SandboxRouteRoute
     }
-    '/_authenticated/assessments/$id/anonymise': {
-      id: '/_authenticated/assessments/$id/anonymise'
+    '/_sandbox/assessments/$id/anonymise': {
+      id: '/_sandbox/assessments/$id/anonymise'
       path: '/assessments/$id/anonymise'
       fullPath: '/assessments/$id/anonymise'
-      preLoaderRoute: typeof AuthenticatedAssessmentsIdAnonymiseRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      preLoaderRoute: typeof SandboxAssessmentsIdAnonymiseRouteImport
+      parentRoute: typeof SandboxRouteRoute
     }
-    '/_authenticated/assessments/$id/certificate': {
-      id: '/_authenticated/assessments/$id/certificate'
+    '/_sandbox/assessments/$id/certificate': {
+      id: '/_sandbox/assessments/$id/certificate'
       path: '/assessments/$id/certificate'
       fullPath: '/assessments/$id/certificate'
-      preLoaderRoute: typeof AuthenticatedAssessmentsIdCertificateRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      preLoaderRoute: typeof SandboxAssessmentsIdCertificateRouteImport
+      parentRoute: typeof SandboxRouteRoute
     }
-    '/_authenticated/assessments/$id/processing': {
-      id: '/_authenticated/assessments/$id/processing'
+    '/_sandbox/assessments/$id/processing': {
+      id: '/_sandbox/assessments/$id/processing'
       path: '/assessments/$id/processing'
       fullPath: '/assessments/$id/processing'
-      preLoaderRoute: typeof AuthenticatedAssessmentsIdProcessingRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      preLoaderRoute: typeof SandboxAssessmentsIdProcessingRouteImport
+      parentRoute: typeof SandboxRouteRoute
     }
-    '/_authenticated/assessments/$id/results': {
-      id: '/_authenticated/assessments/$id/results'
+    '/_sandbox/assessments/$id/results': {
+      id: '/_sandbox/assessments/$id/results'
       path: '/assessments/$id/results'
       fullPath: '/assessments/$id/results'
-      preLoaderRoute: typeof AuthenticatedAssessmentsIdResultsRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      preLoaderRoute: typeof SandboxAssessmentsIdResultsRouteImport
+      parentRoute: typeof SandboxRouteRoute
     }
   }
 }
 
-interface AuthenticatedRouteRouteChildren {
-  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
-  AuthenticatedAssessmentsNewRoute: typeof AuthenticatedAssessmentsNewRoute
-  AuthenticatedAssessmentsIdAnonymiseRoute: typeof AuthenticatedAssessmentsIdAnonymiseRoute
-  AuthenticatedAssessmentsIdCertificateRoute: typeof AuthenticatedAssessmentsIdCertificateRoute
-  AuthenticatedAssessmentsIdProcessingRoute: typeof AuthenticatedAssessmentsIdProcessingRoute
-  AuthenticatedAssessmentsIdResultsRoute: typeof AuthenticatedAssessmentsIdResultsRoute
+interface SandboxRouteRouteChildren {
+  SandboxDashboardRoute: typeof SandboxDashboardRoute
+  SandboxAssessmentsNewRoute: typeof SandboxAssessmentsNewRoute
+  SandboxAssessmentsIdAnonymiseRoute: typeof SandboxAssessmentsIdAnonymiseRoute
+  SandboxAssessmentsIdCertificateRoute: typeof SandboxAssessmentsIdCertificateRoute
+  SandboxAssessmentsIdProcessingRoute: typeof SandboxAssessmentsIdProcessingRoute
+  SandboxAssessmentsIdResultsRoute: typeof SandboxAssessmentsIdResultsRoute
 }
 
-const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
-  AuthenticatedAssessmentsNewRoute: AuthenticatedAssessmentsNewRoute,
-  AuthenticatedAssessmentsIdAnonymiseRoute:
-    AuthenticatedAssessmentsIdAnonymiseRoute,
-  AuthenticatedAssessmentsIdCertificateRoute:
-    AuthenticatedAssessmentsIdCertificateRoute,
-  AuthenticatedAssessmentsIdProcessingRoute:
-    AuthenticatedAssessmentsIdProcessingRoute,
-  AuthenticatedAssessmentsIdResultsRoute:
-    AuthenticatedAssessmentsIdResultsRoute,
+const SandboxRouteRouteChildren: SandboxRouteRouteChildren = {
+  SandboxDashboardRoute: SandboxDashboardRoute,
+  SandboxAssessmentsNewRoute: SandboxAssessmentsNewRoute,
+  SandboxAssessmentsIdAnonymiseRoute: SandboxAssessmentsIdAnonymiseRoute,
+  SandboxAssessmentsIdCertificateRoute: SandboxAssessmentsIdCertificateRoute,
+  SandboxAssessmentsIdProcessingRoute: SandboxAssessmentsIdProcessingRoute,
+  SandboxAssessmentsIdResultsRoute: SandboxAssessmentsIdResultsRoute,
 }
 
-const AuthenticatedRouteRouteWithChildren =
-  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+const SandboxRouteRouteWithChildren = SandboxRouteRoute._addFileChildren(
+  SandboxRouteRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  SandboxRouteRoute: SandboxRouteRouteWithChildren,
   AiEthicsRoute: AiEthicsRoute,
   AuthRoute: AuthRoute,
   GuideRoute: GuideRoute,

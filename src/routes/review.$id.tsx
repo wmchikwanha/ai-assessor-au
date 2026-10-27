@@ -47,15 +47,15 @@ function ReviewDetail() {
   const [busy, setBusy] = useState(false);
 
   async function add(kind: "comment" | "decision", decision?: "approved" | "returned") {
-    if (kind === "comment" && !body.trim()) return toast.error("Write a note first.");
-    if (kind === "decision" && decision === "returned" && !body.trim()) return toast.error("Explain what needs revision in the note box.");
+    if (kind === "comment" && !body.trim()) { toast.error("Write a note first."); return; }
+    if (kind === "decision" && decision === "returned" && !body.trim()) { toast.error("Explain what needs revision in the note box."); return; }
     setBusy(true);
     const { error } = await supabase.from("assessment_reviews").insert({
       assessment_id: id, kind, decision: decision ?? null, stance: stance || null, body: body.trim(),
       reviewer_name: `${name.trim() || "Reviewer"} (${role})`,
     });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     setBody("");
     toast.success(kind === "decision" ? "Decision recorded." : "Note added.");
     qc.invalidateQueries({ queryKey: reviewsKey });
