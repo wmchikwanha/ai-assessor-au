@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { DEMO_ASSESSMENT } from "@/lib/demo";
+import { DEMO_ASSESSMENT, DEMO_SOURCE } from "@/lib/demo";
 import { extractText } from "@/lib/extract";
 
 export const Route = createFileRoute("/_sandbox/assessments/new")({
@@ -93,11 +93,17 @@ function Capture() {
           <h1 className="mt-2 text-4xl">Capture the assessment you already use</h1>
           <p className="mt-2 max-w-2xl text-muted-foreground">Paste text or upload a PDF or Word file. Extraction happens in your browser — the file itself is never uploaded.</p>
         </div>
-        <Button variant="outline" onClick={() => { setF(DEMO_ASSESSMENT); toast.success("Demo assessment loaded: BUSN2045 Case Report."); }}>
-          Load demo assessment
+        <Button variant="outline" onClick={() => { setF(DEMO_ASSESSMENT); toast.success("UQ assessment example loaded: HOSP2003 Feasibility Analysis."); }}>
+          Load UQ assessment example
         </Button>
       </div>
 
+      {f.unit_code === DEMO_ASSESSMENT.unit_code && (
+        <aside aria-label="Assessment source" className="mt-6 border-l-2 border-gold pl-4 text-sm text-muted-foreground">
+          <p><a href={DEMO_SOURCE.url} target="_blank" rel="noreferrer" className="text-foreground underline">{DEMO_SOURCE.university} · {DEMO_SOURCE.period} · Original source</a></p>
+          <p className="mt-1">{DEMO_SOURCE.note} AQF 7, cohort 100 and reform pathway are sandbox assumptions; program is unverified.</p>
+        </aside>
+      )}
       <div className="mt-10 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
         <section className="space-y-3">
           <div className="flex items-center justify-between">
