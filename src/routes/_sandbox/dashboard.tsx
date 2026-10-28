@@ -72,8 +72,8 @@ function Dashboard() {
               <tr>
                 <td colSpan={6} className="px-5 py-14 text-center">
                   <p className="font-display text-xl">No assessments yet.</p>
-                  <p className="mt-1 text-muted-foreground">Start with the demo loader — a real Australian case report assessment.</p>
-                  <Button asChild className="mt-4"><Link to="/assessments/new" search={{ demo: true }}>Load the demo assessment</Link></Button>
+                  <p className="mt-1 text-muted-foreground">Start with an attributed summary of UQ’s published hospitality feasibility assessment.</p>
+                  <Button asChild className="mt-4"><Link to="/assessments/new" search={{ demo: true }}>Load UQ assessment example</Link></Button>
                 </td>
               </tr>
             )}

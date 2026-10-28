@@ -83,7 +83,7 @@ const faqGroups = [
       ["Do I need to sign up or verify my email?", "No. Assayer is an open research sandbox, not a live product. Anyone can test synthetic scenarios and role-play as a Unit coordinator, Governance reviewer or Administrator. No account, real name or institutional email is required."],
       ["Are my sandbox entries private?", "No. Saved assessments, metadata, generated outputs and review notes are shared with all visitors. Use only synthetic information and fictional reviewer aliases. Role-playing is not security, and removing sign-in does not mean zero data collection; service and log retention limits are described on the AI Ethics page."],
       ["What should I enter first?", "Begin with an assessment that already exists. Use the student-facing brief and rubric rather than a high-level description, then check the metadata before continuing."],
-      ["Can I use the sample assessments?", "Yes. The sample records are synthetic and are intended to demonstrate the complete journey without using real student or staff information."],
+      ["Can I use the sample assessment?", "Yes. The loader uses an attributed summary of The University of Queensland’s HOSP2003 Feasibility Analysis of Start Up (Semester 1, 2024), with public criteria and learning objectives. The detailed rubric is not publicly available. AQF level, cohort size and reform pathway are labelled sandbox assumptions. The original task prohibits generative AI; generated alternatives and certificates are research experiments, not UQ approval or permission to use AI on its assessment. Consult the linked official profile for authoritative requirements."],
       ["Can I upload a PDF or Word document?", "Yes. Text is extracted in your browser so you can review it before capture. Layout, images, tables and tracked changes may not transfer perfectly, so compare the extracted text with the source."],
       ["Can I change a generated redesign?", "Treat every result as a review draft. Academic staff remain responsible for checking learning outcomes, rubric language, workload, accessibility, policy references and factual claims before use."],
     ],
@@ -341,7 +341,7 @@ function GuidePage() {
               <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
                 <div>
                   <h2 className="text-3xl">Ready to apply the guide?</h2>
-                  <p className="mt-2 text-sm text-muted-foreground">Start with a synthetic sample. No sign-up or verification is required.</p>
+                  <p className="mt-2 text-sm text-muted-foreground">Start with the public UQ assessment example. No sign-up or verification is required.</p>
                 </div>
                 <Button asChild size="lg"><Link to="/dashboard">Open workbench</Link></Button>
               </div>

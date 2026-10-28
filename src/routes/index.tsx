@@ -50,7 +50,7 @@ function Landing() {
             Prototype for academic review · not yet piloted or evaluated
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg"><Link to="/assessments/new" search={{ demo: true }}>Begin a synthetic assay</Link></Button>
+            <Button asChild size="lg"><Link to="/assessments/new" search={{ demo: true }}>Try the UQ assessment example</Link></Button>
             <Button asChild size="lg" variant="outline"><a href="#how">How it works</a></Button>
           </div>
           <p className="mt-8 font-display text-base italic text-muted-foreground">
@@ -62,7 +62,8 @@ function Landing() {
           <div className="flex items-start justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Assay Certificate</p>
-              <p className="mt-1 font-display text-xl">BUSN2045 · Case Report</p>
+              <p className="mt-1 font-display text-xl">HOSP2003 · Feasibility Analysis</p>
+              <p className="mt-1 text-xs text-muted-foreground">Illustrative record · not issued or endorsed by UQ</p>
             </div>
             <AssayStamp className="h-14 w-14 text-seal" />
           </div>
