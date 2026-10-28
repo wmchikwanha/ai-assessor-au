@@ -9,6 +9,7 @@ import { assessmentQuery } from "@/lib/assessments";
 import { aiGateway } from "@/lib/ai/gateway.functions";
 import { canonicalize, sha256Hex } from "@/lib/canonical";
 import type { Stance } from "@/lib/types";
+import { buildMetadata, exportFilename, toCsv, toPdf, type ExportRow } from "@/lib/lms-export";
 
 export const Route = createFileRoute("/_sandbox/assessments/$id/certificate")({
   head: () => ({
@@ -81,6 +82,23 @@ function Certificate() {
     setVerified(h === hash);
   }
 
+  async function exportLms(kind: "csv" | "pdf") {
+    try {
+      const r = row as unknown as ExportRow;
+      const meta = buildMetadata(r);
+      const blob = kind === "csv"
+        ? new Blob([toCsv(meta)], { type: "text/csv;charset=utf-8" })
+        : new Blob([(await toPdf(meta)) as BlobPart], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url; a.download = exportFilename(r, kind);
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 30_000);
+    } catch (e) {
+      toast.error((e as Error).message);
+    }
+  }
+
   async function regenerate() {
     if (!confirm("Regenerate replaces this log and records the supersession. Continue?")) return;
     setBusy(true);
@@ -103,6 +121,12 @@ function Certificate() {
         <div className="flex flex-wrap gap-2">
           <Button variant="outline" size="sm" onClick={verify}>Verify hash in browser</Button>
           <Button variant="outline" size="sm" onClick={() => window.print()}>Print / save as PDF</Button>
+          {row.status === "certified" && (
+            <>
+              <Button variant="outline" size="sm" onClick={() => exportLms("csv")}>LMS export · CSV</Button>
+              <Button variant="outline" size="sm" onClick={() => exportLms("pdf")}>LMS export · PDF</Button>
+            </>
+          )}
           <Button variant="outline" size="sm" onClick={regenerate} disabled={busy}>{busy ? "Regenerating…" : "Regenerate"}</Button>
           <Button asChild size="sm"><Link to="/assessments/$id/results" params={{ id }}>Back to results</Link></Button>
         </div>
