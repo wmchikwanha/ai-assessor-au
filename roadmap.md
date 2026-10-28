@@ -9,6 +9,6 @@
 - [x] Add honest sandbox notices and verify anonymous capture, role-playing, review and certificate access.
 
 # Genuine university example
-- [ ] Replace synthetic sample records and the sample loader with an attributed public Australian university assessment.
-- [ ] Clearly distinguish original task requirements, missing metadata and experimental AI redesigns.
-- [ ] Verify the anonymous journey from capture to certificate with the genuine example.
+- [x] Replace synthetic sample records and the sample loader with an attributed public Australian university assessment.
+- [x] Clearly distinguish original task requirements, missing metadata and experimental AI redesigns.
+- [x] Verify the anonymous journey from capture to certificate with the genuine example (AI-Limited certificate filed and hash verified).
