@@ -114,6 +114,7 @@ const faqGroups = [
       ["What is the certificate hash?", "It is a SHA-256 fingerprint calculated from the certificate’s canonical, key-sorted data. If that data changes, the fingerprint changes, making later alteration visible."],
       ["Why is certificate regeneration explicit?", "A filed governance record should not silently change. Regeneration creates a deliberate supersession event so the history of the record remains visible."],
       ["Does framework mapping constitute institutional approval?", "No. Mapping shows where the redesign relates to named standards and guidance. Final decisions remain with the authorised academic and institutional governance processes."],
+      ["Can I map a certificate into Canvas, Moodle or Blackboard?", "Yes. Certified records export as a two-column field/value CSV, and the certificate page offers a blank import template with the same fields for pre-mapping into LMS gradebook notes or spreadsheets."],
       ["When should an assay be revisited?", "Review it when learning outcomes, delivery mode, cohort, assessment weighting, institutional policy, available AI systems or relevant external guidance changes."],
     ],
   },
