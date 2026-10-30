@@ -23,9 +23,10 @@ function flatten(v: unknown): string {
 export function buildMetadata(row: ExportRow): [string, string][] {
   if (row.status !== "certified" || !row.certificate_hash) throw new Error("Only certified certificates can be exported.");
   const stance = row.selected_stance ?? "";
-  const variants = (row.variants ?? {}) as Record<string, { aias_level?: string }>;
-  const scores = (row.scores ?? {}) as Record<string, { total?: number; criteria?: { name: string; score: number }[] }>;
-  const s = scores[stance];
+  const pick = <T extends { stance?: string }>(v: unknown): T | undefined =>
+    Array.isArray(v) ? (v as T[]).find((x) => x.stance === stance) : (v as Record<string, T> | null)?.[stance];
+  const variant = pick<{ stance?: string; aias_level?: string }>(row.variants);
+  const s = pick<{ stance?: string; total?: number; criteria?: { name: string; score: number }[] }>(row.scores);
   const meta: [string, string][] = [
     ["export_schema", EXPORT_SCHEMA],
     ["record_id", row.id],
@@ -42,7 +43,7 @@ export function buildMetadata(row: ExportRow): [string, string][] {
     ["teqsa_reform_pathway", row.teqsa_pathway],
     ["framework_mapping", "Mapped to TEQSA assessment reform guidance (2023, 2025, 2026), HESF 2021 and ACSES 2025 — interpretive mapping, not official equivalence"],
     ["certified_stance", stance],
-    ["aias_level", variants[stance]?.aias_level ?? ""],
+    ["aias_level", variant?.aias_level ?? ""],
     ["alignment_total_out_of_100", s?.total != null ? String(s.total) : ""],
     ...((s?.criteria ?? []).map((c, i) => [`criterion_${i + 1}`, `${c.name}: ${c.score}/20`] as [string, string])),
     ["certificate_sha256", row.certificate_hash],
@@ -98,8 +99,9 @@ export async function toPdf(meta: [string, string][]): Promise<Uint8Array> {
     const rows = Math.max(kl.length, vl.length);
     ensure(rows * lh + 6);
     for (let i = 0; i < rows; i++) {
-      if (kl[i]) page.drawText(kl[i], { x: M, y, size, font: bold });
-      if (vl[i]) page.drawText(vl[i], { x: M + keyW, y, size, font });
+      const a = kl[i], b = vl[i];
+      if (a) page.drawText(a, { x: M, y, size, font: bold });
+      if (b) page.drawText(b, { x: M + keyW, y, size, font });
       y -= lh;
     }
     y -= 6;
