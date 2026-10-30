@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { buildMetadata, toCsv, type ExportRow } from "./lms-export";
+import { buildMetadata, toCsv, type ExportRow } from "./lms-export.ts";
 
 const row: ExportRow = {
   id: "x", provider: "P", school: "S", program: "Prog", unit_code: "HOSP2003", unit_title: "U", title: "T, with comma",
