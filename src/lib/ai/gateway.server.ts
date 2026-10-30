@@ -8,6 +8,7 @@ import { AI_CONFIG } from "./config.server";
 import { PREAMBLE, PROMPT_VERSION, certificatePrompt, contextPrompt, scorePrompt, variantPrompt } from "./prompts.server";
 import { unresolvedFlags, CATEGORY_LABEL } from "@/lib/privacy-scan";
 import { canonicalize, sha256Hex } from "@/lib/canonical";
+import { SECTION_TITLES } from "@/lib/lms-export";
 import { CRITERIA, STANCES, type Stance, type Variant, type Swap, type VariantScore, type PrivacyState } from "@/lib/types";
 
 type DB = SupabaseClient<Database>;

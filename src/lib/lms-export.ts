@@ -69,6 +69,34 @@ export function exportFilename(row: ExportRow, ext: string) {
   return `assay-certificate_${row.unit_code || "unit"}_${(row.certificate_hash ?? "").slice(0, 12)}.${ext}`;
 }
 
+/** Nine certificate section titles — shared with the certificate generator so template field names always match exports. */
+export const SECTION_TITLES = [
+  "Identification",
+  "Original Assessment Summary",
+  "Redesign Rationale",
+  "AI Tools and Systems Considered and Used",
+  "Pedagogical Justification",
+  "Capability Criteria Alignment",
+  "Standards and Frameworks Mapping",
+  "Integrity, Fairness, Accessibility and Contestability",
+  "Declaration",
+] as const;
+
+/**
+ * Blank two-column (field,value) scaffold matching the certified export's field order,
+ * for pre-mapping into Canvas, Moodle or Blackboard gradebook notes or spreadsheets.
+ */
+export function buildTemplate(): [string, string][] {
+  return [
+    "export_schema", "record_id", "provider", "school", "program", "unit_code", "unit_title", "assessment_title",
+    "aqf_level", "discipline", "cohort_size", "delivery_mode", "teqsa_reform_pathway", "framework_mapping",
+    "certified_stance", "aias_level", "alignment_total_out_of_100",
+    ...Array.from({ length: 5 }, (_, i) => `criterion_${i + 1}`),
+    "certificate_sha256", "prompt_version", "model", "certified_at", "human_signoff_required", "status_note",
+    ...SECTION_TITLES.map((title, i) => `section_${i + 1}_${title}`),
+  ].map((field) => [field, ""] as [string, string]);
+}
+
 export async function toPdf(meta: [string, string][]): Promise<Uint8Array> {
   const { PDFDocument, StandardFonts, rgb } = await import("pdf-lib");
   const doc = await PDFDocument.create();
