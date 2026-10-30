@@ -15,8 +15,8 @@ test("only certified records export", () => {
 
 test("metadata carries AQF level, TEQSA pathway and hash; CSV escapes commas", () => {
   const m = Object.fromEntries(buildMetadata(row));
-  assert.equal(m.aqf_level, "7");
-  assert.equal(m.teqsa_reform_pathway, "unit-level");
-  assert.equal(m.certificate_sha256, "a".repeat(64));
+  assert.equal(m['aqf_level'], "7");
+  assert.equal(m['teqsa_reform_pathway'], "unit-level");
+  assert.equal(m['certificate_sha256'], "a".repeat(64));
   assert.match(toCsv(buildMetadata(row)), /assessment_title,"T, with comma"/);
 });

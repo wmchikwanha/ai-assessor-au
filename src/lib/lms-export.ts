@@ -98,8 +98,9 @@ export async function toPdf(meta: [string, string][]): Promise<Uint8Array> {
     const rows = Math.max(kl.length, vl.length);
     ensure(rows * lh + 6);
     for (let i = 0; i < rows; i++) {
-      if (kl[i]) page.drawText(kl[i], { x: M, y, size, font: bold });
-      if (vl[i]) page.drawText(vl[i], { x: M + keyW, y, size, font });
+      const a = kl[i], b = vl[i];
+      if (a) page.drawText(a, { x: M, y, size, font: bold });
+      if (b) page.drawText(b, { x: M + keyW, y, size, font });
       y -= lh;
     }
     y -= 6;
