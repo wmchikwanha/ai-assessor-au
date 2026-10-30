@@ -9,7 +9,7 @@ import { assessmentQuery } from "@/lib/assessments";
 import { aiGateway } from "@/lib/ai/gateway.functions";
 import { canonicalize, sha256Hex } from "@/lib/canonical";
 import type { Stance } from "@/lib/types";
-import { buildMetadata, exportFilename, toCsv, toPdf, type ExportRow } from "@/lib/lms-export";
+import { buildMetadata, buildTemplate, exportFilename, toCsv, toPdf, type ExportRow } from "@/lib/lms-export";
 
 export const Route = createFileRoute("/_sandbox/assessments/$id/certificate")({
   head: () => ({
@@ -99,6 +99,22 @@ function Certificate() {
     }
   }
 
+  function exportTemplate() {
+    try {
+      const blob = new Blob([toCsv(buildTemplate())], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "assayer-lms-import-template.csv";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 30_000);
+    } catch (e) {
+      toast.error((e as Error).message);
+    }
+  }
+
   async function regenerate() {
     if (!confirm("Regenerate replaces this log and records the supersession. Continue?")) return;
     setBusy(true);
@@ -121,6 +137,9 @@ function Certificate() {
         <div className="flex flex-wrap gap-2">
           <Button variant="outline" size="sm" onClick={verify}>Verify hash in browser</Button>
           <Button variant="outline" size="sm" onClick={() => window.print()}>Print / save as PDF</Button>
+          <Button variant="outline" size="sm" onClick={exportTemplate} title="Blank two-column (field,value) scaffold for pre-mapping into Canvas, Moodle or Blackboard gradebook notes">
+            LMS import template · CSV
+          </Button>
           {row.status === "certified" && (
             <>
               <Button variant="outline" size="sm" onClick={() => exportLms("csv")}>LMS export · CSV</Button>
@@ -129,6 +148,10 @@ function Certificate() {
           )}
           <Button variant="outline" size="sm" onClick={regenerate} disabled={busy}>{busy ? "Regenerating…" : "Regenerate"}</Button>
           <Button asChild size="sm"><Link to="/assessments/$id/results" params={{ id }}>Back to results</Link></Button>
+          <p className="w-full text-xs text-muted-foreground">
+            The import template lists every export field with a blank value column — pre-map it in Canvas, Moodle or
+            Blackboard gradebook notes, then paste a certified export's rows underneath.
+          </p>
         </div>
       </div>
       {verified !== null && (
