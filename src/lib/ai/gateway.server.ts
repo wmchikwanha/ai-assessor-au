@@ -274,7 +274,7 @@ async function generateCertificate(db: DB, row: Row, stance: Stance, regenerate:
     sections: [
       {
         n: 1,
-        title: "Identification",
+        title: SECTION_TITLES[0],
         body: {
           provider: row.provider,
           unit: `${row.unit_code} ${row.unit_title}`,
@@ -287,10 +287,10 @@ async function generateCertificate(db: DB, row: Row, stance: Stance, regenerate:
           delivery_mode: row.delivery_mode,
         },
       },
-      { n: 2, title: "Original Assessment Summary", body: { summary: n.original_summary, vulnerability_profile: n.vulnerability_profile } },
+      { n: 2, title: SECTION_TITLES[1], body: { summary: n.original_summary, vulnerability_profile: n.vulnerability_profile } },
       {
         n: 3,
-        title: "Redesign Rationale",
+        title: SECTION_TITLES[2],
         body: {
           stance: stanceMeta.label,
           design_rule: stanceMeta.rule,
@@ -302,7 +302,7 @@ async function generateCertificate(db: DB, row: Row, stance: Stance, regenerate:
       },
       {
         n: 4,
-        title: "AI Tools and Systems Considered and Used",
+        title: SECTION_TITLES[3],
         body: {
           model: AI_CONFIG.model,
           prompt_registry_version: PROMPT_VERSION,
@@ -322,18 +322,18 @@ async function generateCertificate(db: DB, row: Row, stance: Stance, regenerate:
       },
       {
         n: 5,
-        title: "Pedagogical Justification",
+        title: SECTION_TITLES[4],
         body: { constructive_alignment: n.pedagogical_justification, maturity_self_rating: n.maturity_rating },
       },
       {
         n: 6,
-        title: "Capability Criteria Alignment",
+        title: SECTION_TITLES[5],
         body: { total: sc.total, out_of: 100, criteria: sc.criteria, employability: n.employability_reasoning, jsa_skills: n.jsa_skills },
       },
-      { n: 7, title: "Standards and Frameworks Mapping", body: { rows: n.standards_mapping } },
+      { n: 7, title: SECTION_TITLES[6], body: { rows: n.standards_mapping } },
       {
         n: 8,
-        title: "Integrity, Fairness, Accessibility and Contestability",
+        title: SECTION_TITLES[7],
         body: {
           privacy_gate: `Passed ${privacy.scanned_at?.slice(0, 10) ?? ""}: ${privacy.flags_total ?? 0} flag(s) raised, ${privacy.removed ?? 0} removed, ${(privacy.kept ?? []).length} kept with declaration. Server re-scan clean.`,
           integrity: n.integrity_fairness,
@@ -343,7 +343,7 @@ async function generateCertificate(db: DB, row: Row, stance: Stance, regenerate:
       },
       {
         n: 9,
-        title: "Declaration",
+        title: SECTION_TITLES[8],
         body: {
           statement:
             "I declare that this redesign was reviewed by me, that no student personal information was processed, and that the standards listed are mapped to (not certified against) the named instruments.",
