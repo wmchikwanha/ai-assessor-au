@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { AssayStamp, Wordmark, Eyebrow } from "@/components/brand";
+import { AssayStamp, Wordmark, Eyebrow, PortfolioLink } from "@/components/brand";
 import { Button } from "@/components/ui/button";
 import { STANCES } from "@/lib/types";
 import { SandboxNotice } from "@/components/sandbox-notice";
@@ -113,7 +113,7 @@ function Landing() {
       <footer className="border-t">
         <div className="mx-auto max-w-6xl px-6 py-8 text-xs text-muted-foreground">
           Assayer maps to — and does not certify compliance with — TEQSA guidance, HESF 2021, AQF and the ACSES Framework. Prototype for academic review; not piloted, evaluated or institutionally endorsed.
-          <p className="mt-2"><Link to="/guide" className="hover:text-foreground">Guide &amp; FAQ</Link> · <Link to="/ai-ethics" className="hover:text-foreground">AI Ethics</Link> · Developed by Walter C. Copyright 2026.</p>
+          <p className="mt-2"><Link to="/guide" className="hover:text-foreground">Guide &amp; FAQ</Link> · <Link to="/ai-ethics" className="hover:text-foreground">AI Ethics</Link> · Developed by <PortfolioLink />. Copyright 2026.</p>
         </div>
       </footer>
     </div>

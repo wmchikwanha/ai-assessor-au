@@ -47,10 +47,29 @@ export function Stepper({ current }: { current: number }) {
   );
 }
 
+export const PORTFOLIO_URL = "https://walter-m-chikwanha-au-professional-resume-portfolio.ai.studio/";
+
+export function PortfolioLink() {
+  return (
+    <a
+      href={PORTFOLIO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-0.5 underline underline-offset-2 hover:text-foreground"
+    >
+      Walter C
+      <span aria-hidden>↗</span>
+      <span className="sr-only">(opens in a new tab)</span>
+    </a>
+  );
+}
+
 export function SiteFooter() {
   return (
     <footer className="border-t no-print">
-      <div className="mx-auto max-w-6xl px-6 py-6 text-xs text-muted-foreground">Developed by Walter C. Copyright 2026.</div>
+      <div className="mx-auto max-w-6xl px-6 py-6 text-xs text-muted-foreground">
+        Developed by <PortfolioLink />. Copyright 2026.
+      </div>
     </footer>
   );
 }

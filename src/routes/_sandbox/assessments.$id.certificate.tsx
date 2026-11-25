@@ -3,7 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { toast } from "sonner";
-import { AppShell, AssayStamp, Eyebrow } from "@/components/brand";
+import { AppShell, AssayStamp, Eyebrow, PortfolioLink } from "@/components/brand";
 import { Button } from "@/components/ui/button";
 import { assessmentQuery } from "@/lib/assessments";
 import { aiGateway } from "@/lib/ai/gateway.functions";
@@ -216,7 +216,7 @@ function Certificate() {
         <footer className="mt-12 border-t pt-4 text-[11px] text-muted-foreground">
           <p>Issued {new Date(log.issued_at).toLocaleString("en-AU", { timeZone: "Australia/Sydney" })} (AEST/AEDT). Standards are mapped to, not certified against, the instruments named.</p>
           <p className="mt-1 break-all font-mono">SHA-256 (canonical key-sorted JSON): {hash}</p>
-          <p className="mt-2">Developed by Walter C. Copyright 2026.</p>
+          <p className="mt-2">Developed by <PortfolioLink />. Copyright 2026.</p>
           {history.length > 0 && (
             <div className="mt-2">
               <p>Supersession record:</p>

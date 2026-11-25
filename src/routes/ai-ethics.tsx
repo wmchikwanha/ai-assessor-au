@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Scale, ShieldCheck, Fingerprint } from "lucide-react";
-import { AssayStamp, Eyebrow, Wordmark } from "@/components/brand";
+import { AssayStamp, Eyebrow, Wordmark, PortfolioLink } from "@/components/brand";
 import { Button } from "@/components/ui/button";
 import { CRITERIA } from "@/lib/types";
 
@@ -196,7 +196,7 @@ function AIEthicsPage() {
 
       <footer className="border-t bg-paper">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-7 text-xs text-muted-foreground sm:flex-row sm:justify-between">
-          <p>Prototype for academic review; not piloted, evaluated or institutionally endorsed.<br />Developed by Walter C. Copyright 2026.</p>
+          <p>Prototype for academic review; not piloted, evaluated or institutionally endorsed.<br />Developed by <PortfolioLink />. Copyright 2026.</p>
           <nav className="flex gap-5" aria-label="Footer navigation"><Link to="/">Home</Link><Link to="/guide">Guide &amp; FAQ</Link></nav>
         </div>
       </footer>

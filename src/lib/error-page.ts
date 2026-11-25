@@ -25,7 +25,7 @@ export function renderErrorPage(): string {
         <button class="primary" onclick="location.reload()">Try again</button>
         <a class="secondary" href="/">Go home</a>
       </div>
-      <div class="footer">Developed by Walter C. Copyright 2026.</div>
+      <div class="footer">Developed by <a class="secondary" style="padding:0.1rem 0.35rem" href="https://walter-m-chikwanha-au-professional-resume-portfolio.ai.studio/" target="_blank" rel="noopener noreferrer">Walter C ↗</a>. Copyright 2026.</div>
     </div>
   </body>
 </html>`;
