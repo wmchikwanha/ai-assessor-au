@@ -2,6 +2,7 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
 
 export function AssayStamp({ className }: { className?: string }) {
   return (
@@ -49,7 +50,7 @@ export function Stepper({ current }: { current: number }) {
 export function SiteFooter() {
   return (
     <footer className="border-t no-print">
-      <div className="mx-auto max-w-6xl px-6 py-6 text-xs text-muted-foreground">Developed by <a href="https://walter-m-chikwanha-au-professional-resume-portfolio.ai.studio/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-foreground">Walter C.</a> Copyright 2026.</div>
+      <div className="mx-auto max-w-6xl px-6 py-6 text-xs text-muted-foreground">Developed by <a href="https://walter-m-chikwanha-au-professional-resume-portfolio.ai.studio/" target="_blank" rel="noreferrer" aria-label="Walter C. professional portfolio" className="inline-flex items-center gap-1 font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-current">Walter C.<ArrowUpRight size={12} strokeWidth={1.8} aria-hidden="true" /></a> Copyright 2026.</div>
     </footer>
   );
 }
