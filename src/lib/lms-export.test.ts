@@ -24,6 +24,7 @@ test("metadata carries AQF level, TEQSA pathway and hash; CSV escapes commas", (
 test("import template lists every export field, in export order, with blank values", () => {
   const certified: ExportRow = {
     ...row,
+    scores: { limited: { total: 60, criteria: [1, 2, 3, 4, 5].map((i) => ({ name: `c${i}`, score: 12 })) } },
     certificate: {
       sections: SECTION_TITLES.map((title, i) => ({ n: i + 1, title, body: { note: "x" } })),
     },
@@ -34,5 +35,5 @@ test("import template lists every export field, in export order, with blank valu
   assert.deepEqual(template.map(([k]) => k), exportKeys);
   assert.ok(template.length >= 37, `expected full field list, got ${template.length}`);
   assert.ok(template.every(([, v]) => v === ""), "template values must be blank");
-  assert.match(toCsv(template), /^ field,value/x.source ? / field/ : /./); // placeholder replaced below
+  assert.ok(toCsv(template).startsWith("\uFEFFfield,value\r\nexport_schema,\r\n"));
 });
