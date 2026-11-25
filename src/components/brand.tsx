@@ -49,7 +49,7 @@ export function Stepper({ current }: { current: number }) {
 export function SiteFooter() {
   return (
     <footer className="border-t no-print">
-      <div className="mx-auto max-w-6xl px-6 py-6 text-xs text-muted-foreground">Developed by Walter C. Copyright 2026.</div>
+      <div className="mx-auto max-w-6xl px-6 py-6 text-xs text-muted-foreground">Developed by <a href="https://walter-m-chikwanha-au-professional-resume-portfolio.ai.studio/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-foreground">Walter C.</a> Copyright 2026.</div>
     </footer>
   );
 }
