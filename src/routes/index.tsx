@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AssayStamp, Wordmark, Eyebrow } from "@/components/brand";
 import { Button } from "@/components/ui/button";
 import { STANCES } from "@/lib/types";
+import { ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -107,7 +108,7 @@ function Landing() {
       <footer className="border-t">
         <div className="mx-auto max-w-6xl px-6 py-8 text-xs text-muted-foreground">
           Assayer maps to — and does not certify compliance with — TEQSA guidance, HESF 2021, AQF and the ACSES Framework. Foundational build for academic review.
-          <p className="mt-2"><Link to="/guide" className="hover:text-foreground">Guide &amp; FAQ</Link> · Developed by <a href="https://walter-m-chikwanha-au-professional-resume-portfolio.ai.studio/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-foreground">Walter C.</a> Copyright 2026.</p>
+          <p className="mt-2"><Link to="/guide" className="hover:text-foreground">Guide &amp; FAQ</Link> · Developed by <a href="https://walter-m-chikwanha-au-professional-resume-portfolio.ai.studio/" target="_blank" rel="noreferrer" aria-label="Walter C. professional portfolio" className="inline-flex items-center gap-1 font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-current">Walter C.<ArrowUpRight size={12} strokeWidth={1.8} aria-hidden="true" /></a> Copyright 2026.</p>
         </div>
       </footer>
     </div>
