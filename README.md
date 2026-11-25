@@ -384,6 +384,6 @@ The repository's staged plan identifies these deferred capabilities:
 
 ## Attribution
 
-Developed by Walter C. Copyright 2026.
+Developed by [Walter C.](https://walter-m-chikwanha-au-professional-resume-portfolio.ai.studio/) . Copyright 2026.
 
 Assayer maps to — and does not certify compliance with — TEQSA guidance, HESF 2021, AQF, and the ACSES Framework.
