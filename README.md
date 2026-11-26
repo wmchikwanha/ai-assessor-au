@@ -6,6 +6,10 @@ It is deliberately **not an AI detector**. Its central proposition is that asses
 
 > **Important scope statement:** Assayer maps assessment designs to named Australian and international frameworks. It does **not** certify regulatory, institutional, professional-accreditation, privacy, or academic-policy compliance. Generated outputs are drafts for qualified academic review.
 
+**Status:** prototype on synthetic data only. Not production. Live sandbox: https://ai-assessor-au.lovable.app (deliberately open, no sign-in, so every role can be tested end to end).
+
+**Security note:** the Supabase publishable (anon) key in `.env` is intentionally public, as Supabase designs it to be. The service-role key is read from the server environment only and is not in this repository.
+
 ## Product purpose
 
 Generative AI changes the conditions under which a conventional take-home assessment can evidence learning. An assessment may remain aligned to its course learning outcomes yet become weak evidence of a student's own judgement, verification, process, ethical reasoning, or contextual application. Assayer is intended to make that design problem inspectable and actionable.
